@@ -3,14 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import {
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  Send,
-  MessageCircle,
-} from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from "lucide-react";
+
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -21,12 +15,14 @@ const ContactSection = () => {
     email: "",
     message: "",
   });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    // console.log(formData);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -34,21 +30,40 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    toast({
-      title: "تم إرسال رسالتك بنجاح!",
-      description: "سنتواصل معك في أقرب وقت ممكن.",
-    });
+    try {
+      const response = await fetch("https://formspree.io/f/meeokqob", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    setFormData({
-      name: "",
-      company: "",
-      phone: "",
-      email: "",
-      message: "",
-    });
-    setIsSubmitting(false);
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      toast({
+        title: "تم إرسال رسالتك بنجاح!",
+        description: "سنتواصل معك في أقرب وقت ممكن.",
+      });
+
+      setFormData({
+        name: "",
+        company: "",
+        phone: "",
+        email: "",
+        message: "",
+      });
+      setIsSubmitting(false);
+      const data = await response.json();
+      console.log("Success:", data);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+
+    console.log(formData);
   };
 
   const contactInfo = [
@@ -243,7 +258,9 @@ const ContactSection = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-muted-foreground hover:text-primary transition-colors"
-                          dir={info.title === "البريد الإلكتروني" ? "ltr" : "rtl"}
+                          dir={
+                            info.title === "البريد الإلكتروني" ? "ltr" : "rtl"
+                          }
                         >
                           {info.value}
                         </a>
