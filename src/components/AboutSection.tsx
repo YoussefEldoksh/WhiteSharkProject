@@ -1,6 +1,14 @@
 import { Factory, Award, Users, TrendingUp } from "lucide-react";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 const AboutSection = () => {
+
+      useEffect(()=>{
+        AOS.init({
+           duration: 1000,once: false,
+        });
+      },[]);
   const features = [
     {
       icon: Factory,
@@ -28,7 +36,7 @@ const AboutSection = () => {
     <section id="about" className="section-padding bg-background" dir="rtl">
       <div className="container-custom">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div data-aos="fade-down" className="text-center mb-16">
           <span className="text-secondary font-semibold text-sm tracking-wider uppercase">
             تعرف علينا
           </span>
@@ -40,7 +48,7 @@ const AboutSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
-          <div className="space-y-6">
+          <div data-aos="fade-left" className="space-y-6">
             <h3 className="text-2xl md:text-3xl font-bold text-foreground">
               <span className="text-primary">White Shark</span> - الرائدون في تصنيع منتجات التنظيف
             </h3>
@@ -55,8 +63,8 @@ const AboutSection = () => {
             </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 pt-6">
-              <div className="text-center p-4 bg-accent rounded-lg">
+            <div  className="grid grid-cols-3 gap-4 pt-6">
+              <div  className="text-center p-4 bg-accent rounded-lg">
                 <div className="text-2xl font-bold text-primary">+15</div>
                 <div className="text-sm text-muted-foreground">سنة خبرة</div>
               </div>
@@ -74,7 +82,7 @@ const AboutSection = () => {
           {/* Features Grid */}
           <div className="grid sm:grid-cols-2 gap-6">
             {features.map((feature, index) => (
-              <div
+              <div data-aos="fade-right"
                 key={index}
                 className="bg-card p-6 rounded-xl shadow-card hover:shadow-elevated transition-all duration-300 border border-border group hover:-translate-y-1"
               >

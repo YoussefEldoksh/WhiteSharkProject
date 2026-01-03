@@ -44,7 +44,7 @@ const ProductsSection = () => {
     <section id="products" className="section-padding bg-muted" dir="rtl">
       <div className="container-custom">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div data-aos="fade-down" className="text-center mb-16">
           <span className="text-secondary font-semibold text-sm tracking-wider uppercase">
             منتجاتنا
           </span>
@@ -61,7 +61,7 @@ const ProductsSection = () => {
         {/* Products Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product, index) => (
-            <article
+            <article data-aos="flip-left"
               key={index}
               className="bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 group hover:-translate-y-2"
             >

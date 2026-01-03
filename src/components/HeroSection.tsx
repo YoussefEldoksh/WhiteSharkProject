@@ -1,11 +1,23 @@
 import { ArrowLeft, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.jpg";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 // For Vite / React import:
 import heroVideo from "@/assets/hero-video.mp4"; 
+import { useEffect } from "react";
 // If using Next.js, you can alternatively put hero-video.mp4 in public/ and use src="/hero-video.mp4"
 
+
+
 const HeroSection = () => {
+
+  useEffect(()=>{
+    AOS.init({
+       duration: 1000,once: false
+    });
+  },[]);
+
   const scrollToContact = () => {
     const element = document.querySelector("#contact");
     if (element) {
@@ -14,7 +26,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section
+    <section 
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       dir="rtl"
@@ -38,7 +50,7 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Logo */}
           <div className="mb-8 animate-fade-in">
-            <img
+            <img  data-aos="flip-left"
               src={logo}
               alt="White Shark Logo"
               className="h-32 md:h-40 mx-auto object-contain drop-shadow-2xl"
@@ -68,16 +80,16 @@ const HeroSection = () => {
               تواصل معنا الآن
               <ArrowLeft className="h-5 w-5 transition-transform group-hover:-translate-x-1" />
             </Button>
-            <a href="tel:011XXXXXX">
+            <a href="tel:01114259777">
               <Button variant="hero-outline" size="lg" className="w-full sm:w-auto">
                 <Phone className="h-5 w-5" />
-                01XXXXXXX
+               01114259777
               </Button>
             </a>
           </div>
 
           {/* Trust Indicators */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 animate-slide-up animation-delay-300">
+          <div className="mt-4 mb-8 grid grid-cols-2 md:grid-cols-4 gap-6 animate-slide-up animation-delay-300">
             {[
               { number: "+15", label: "سنة خبرة" },
               { number: "+500", label: "عميل راضٍ" },
@@ -101,11 +113,11 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
+      {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
         <div className="w-6 h-10 border-2 border-primary-foreground/50 rounded-full flex justify-center">
           <div className="w-1.5 h-3 bg-primary-foreground/50 rounded-full mt-2 animate-pulse-soft" />
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

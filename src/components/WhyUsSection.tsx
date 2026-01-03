@@ -49,7 +49,7 @@ const WhyUsSection = () => {
 
   return (
     <section id="why-us" className="section-padding bg-background" dir="rtl">
-      <div className="container-custom">
+      <div data-aos="fade-down" className="container-custom">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="text-secondary font-semibold text-sm tracking-wider uppercase">
@@ -93,7 +93,7 @@ const WhyUsSection = () => {
         </div>
 
         {/* Bottom Stats */}
-        <div className="mt-16 bg-primary rounded-2xl p-8 md:p-12">
+        <div data-aos="flip-up" className="mt-16 bg-primary rounded-2xl p-8 md:p-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { value: "100%", label: "رضا العملاء" },

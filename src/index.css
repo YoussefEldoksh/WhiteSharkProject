@@ -1,48 +1,111 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
 
-/* Tailwind v4 import */
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   :root {
+    /* White Shark Brand Colors - Industrial B2B Theme */
     --background: 210 20% 98%;
     --foreground: 210 50% 10%;
+
     --card: 0 0% 100%;
     --card-foreground: 210 50% 10%;
+
     --popover: 0 0% 100%;
     --popover-foreground: 210 50% 10%;
+
+    /* Primary: Industrial Blue from logo */
     --primary: 205 85% 40%;
     --primary-foreground: 0 0% 100%;
     --primary-light: 205 85% 55%;
     --primary-dark: 205 85% 30%;
+
+    /* Secondary: Bold Red from logo */
     --secondary: 0 70% 50%;
     --secondary-foreground: 0 0% 100%;
+
     --muted: 210 15% 93%;
     --muted-foreground: 210 15% 45%;
+
     --accent: 205 60% 95%;
     --accent-foreground: 205 85% 30%;
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
+
     --border: 210 20% 88%;
     --input: 210 20% 88%;
     --ring: 205 85% 40%;
+
     --radius: 0.5rem;
+
+    /* Custom gradients */
     --gradient-primary: linear-gradient(135deg, hsl(205 85% 40%), hsl(205 85% 55%));
     --gradient-hero: linear-gradient(180deg, hsl(205 85% 25% / 0.95), hsl(205 85% 15% / 0.98));
     --gradient-accent: linear-gradient(135deg, hsl(0 70% 50%), hsl(0 70% 60%));
+
+    /* Shadows */
     --shadow-soft: 0 4px 20px hsl(205 85% 40% / 0.1);
     --shadow-card: 0 8px 30px hsl(205 85% 40% / 0.12);
     --shadow-elevated: 0 20px 60px hsl(205 85% 40% / 0.15);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
     --background: 210 50% 8%;
     --foreground: 210 20% 98%;
+
+    --card: 210 50% 12%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 210 50% 12%;
+    --popover-foreground: 210 20% 98%;
+
     --primary: 205 85% 50%;
+    --primary-foreground: 0 0% 100%;
     --primary-light: 205 85% 60%;
     --primary-dark: 205 85% 40%;
+
+    --secondary: 0 70% 55%;
+    --secondary-foreground: 0 0% 100%;
+
     --muted: 210 30% 18%;
     --muted-foreground: 210 15% 65%;
+
+    --accent: 205 40% 20%;
+    --accent-foreground: 205 85% 70%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 30% 20%;
+    --input: 210 30% 20%;
+    --ring: 205 85% 50%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
   }
 
   html {
@@ -50,11 +113,11 @@
   }
 
   body {
-    font-family: 'Cairo', sans-serif;
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
+    @apply bg-background text-foreground font-cairo;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 
+  /* RTL Support */
   [dir="rtl"] {
     text-align: right;
   }
@@ -62,28 +125,24 @@
 
 @layer components {
   .container-custom {
-    max-width: 80rem;
-    margin: 0 auto;
-    padding: 0 1rem;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
   .section-padding {
-    padding: 4rem 0;
+    @apply py-16 md:py-24;
   }
 
   .text-gradient-primary {
+    @apply bg-clip-text text-transparent;
     background-image: var(--gradient-primary);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
   }
 
   .bg-gradient-primary {
-    background-image: var(--gradient-primary);
+    background: var(--gradient-primary);
   }
 
   .bg-gradient-hero {
-    background-image: var(--gradient-hero);
+    background: var(--gradient-hero);
   }
 
   .shadow-soft {
@@ -113,55 +172,49 @@
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   @keyframes slideUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @keyframes slideInRight {
-    from { opacity: 0; transform: translateX(-30px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
-
-  .animation-delay-100 { animation-delay: 100ms; }
-  .animation-delay-200 { animation-delay: 200ms; }
-  .animation-delay-300 { animation-delay: 300ms; }
-  .animation-delay-400 { animation-delay: 400ms; }
-
-  /* WhatsApp Float Button */
-  .whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25d366;
-    color: #fff;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    touch-action: manipulation;
-  }
-
-  .whatsapp-float:hover {
-    transform: scale(1.08);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.4);
-  }
-
-  @media (max-width: 768px) {
-    .whatsapp-float {
-      bottom: 16px;
-      right: 16px;
-      width: 56px;
-      height: 56px;
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
     }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
   }
 }

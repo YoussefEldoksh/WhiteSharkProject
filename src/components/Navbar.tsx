@@ -2,8 +2,17 @@ import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.jpg";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Navbar = () => {
+
+    useEffect(()=>{
+      AOS.init({
+         duration: 1000,once: false,
+      });
+    },[]);
+
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -32,7 +41,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav
+    <nav data-aos="fade-down"
       className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-card/95 backdrop-blur-md shadow-card"

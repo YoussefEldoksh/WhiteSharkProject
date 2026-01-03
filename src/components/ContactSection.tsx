@@ -3,8 +3,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from "lucide-react";
-
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Send,
+  MessageCircle,
+} from "lucide-react";
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -15,14 +21,12 @@ const ContactSection = () => {
     email: "",
     message: "",
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    // console.log(formData);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -70,13 +74,13 @@ const ContactSection = () => {
     {
       icon: Phone,
       title: "الهاتف",
-      value: "011XXXXXX",
+      value: "01114259777",
       link: "tel:01114259777",
     },
     {
       icon: MessageCircle,
       title: "واتساب",
-      value: "011XXXXXX",
+      value: "01114259777",
       link: "https://wa.me/201114259777",
     },
     {
@@ -103,9 +107,9 @@ const ContactSection = () => {
     <section id="contact" className="section-padding bg-muted" dir="rtl">
       <div className="container-custom">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div data-aos="fade-down" className="text-center mb-16">
           <span className="text-secondary font-semibold text-sm tracking-wider uppercase">
-            تواصل معنا
+            تواصل معنا  
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3 mb-4">
             نحن هنا لخدمتك
@@ -116,7 +120,7 @@ const ContactSection = () => {
           <div className="w-20 h-1 bg-primary mx-auto rounded-full mt-4" />
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div data-aos = "zoom-in" className="grid lg:grid-cols-2 row-span-2  gap-12">
           {/* Contact Form */}
           <div className="bg-card p-8 rounded-2xl shadow-card">
             <h3 className="text-2xl font-bold text-foreground mb-6">
@@ -258,9 +262,7 @@ const ContactSection = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-muted-foreground hover:text-primary transition-colors"
-                          dir={
-                            info.title === "البريد الإلكتروني" ? "ltr" : "rtl"
-                          }
+                          dir={info.title === "البريد الإلكتروني" ? "ltr" : "rtl"}
                         >
                           {info.value}
                         </a>
