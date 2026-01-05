@@ -5,7 +5,7 @@ const InstagramFloat = () => {
   const instagramUrl = "https://www.instagram.com/white.shark.clean";
 
   return (
-    <div data-aos="fade-left">
+    <div >
       <a
         className=""
         href={instagramUrl}

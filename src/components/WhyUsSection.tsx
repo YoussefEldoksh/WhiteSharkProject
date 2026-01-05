@@ -7,7 +7,18 @@ import {
   Handshake,
 } from "lucide-react";
 
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 const WhyUsSection = () => {
+
+      useEffect(()=>{
+        AOS.init({
+           duration: 1000,once: true,offset: 50 ,disable: window.innerWidth < 768 ? false : 'mobile'
+        });
+      },[]);
   const reasons = [
     {
       icon: Shield,

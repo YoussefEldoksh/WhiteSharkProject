@@ -4,8 +4,24 @@ import wireRack from "@/assets/wire-rack.jpg";
 import spaghetti from "@/assets/spaghetti.jpg";
 import spongeScrubber from "@/assets/sponge-scrubber.jpg";
 import cleaningProducts from "@/assets/cleaning-products.jpg";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+import { ProductMorphingCard } from "./product-morphing-card";
+
+const TRANSITION = {
+  type: "spring",
+  stiffness: 260,
+  damping: 30,
+}
 
 const ProductsSection = () => {
+    useEffect(()=>{
+      AOS.init({
+         duration: 1000,once: true,offset: 50 ,disable: window.innerWidth < 768 ? false : 'mobile'
+      });
+    },[]);
+    
   const products = [
     {
       image: wireRack,
@@ -44,7 +60,7 @@ const ProductsSection = () => {
     <section id="products" className="section-padding bg-muted" dir="rtl">
       <div className="container-custom">
         {/* Section Header */}
-        <div data-aos="fade-down" className="text-center mb-16">
+        <div  className="text-center mb-16">
           <span className="text-secondary font-semibold text-sm tracking-wider uppercase">
             منتجاتنا
           </span>
@@ -60,58 +76,16 @@ const ProductsSection = () => {
 
         {/* Products Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (
-            <article data-aos="flip-left"
+            {products.map((product, index) => (
+            <ProductMorphingCard
               key={index}
-              className="bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 group hover:-translate-y-2"
-            >
-              {/* Product Image */}
-              <div className="relative h-56 overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.alt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent" />
-              </div>
-
-              {/* Product Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-foreground mb-3">
-                  {product.title}
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                  {product.description}
-                </p>
-
-                {/* Uses */}
-                <div className="mb-4">
-                  <h4 className="text-sm font-semibold text-foreground mb-2">
-                    الاستخدامات:
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {product.uses.map((use, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1 bg-accent text-accent-foreground text-xs rounded-full"
-                      >
-                        {use}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* CTA */}
-                <Button
-                  variant="outline"
-                  className="w-full group/btn"
-                  onClick={scrollToContact}
-                >
-                  اطلب عرض سعر
-                  <ArrowLeft className="h-4 w-4 transition-transform group-hover/btn:-translate-x-1" />
-                </Button>
-              </div>
-            </article>
+              image={product.image}
+              title={product.title}
+              description={product.description}
+              uses={product.uses}
+              alt={product.alt}
+              onRequestQuote={scrollToContact}
+            />
           ))}
         </div>
 

@@ -9,13 +9,11 @@ import NotFound from "./pages/NotFound";
 import { FaWhatsapp } from "react-icons/fa"; // using react-icons for WhatsApp icon
 import React from "react";
 import "./index.css";
-import InstagramFloat from "./components/instagramfloat";
-import WhatsAppFloat from "./components/whatsappfloat";
+import InstagramFloat from "./components/InstagramFloat";
+import WhatsAppFloat from "./components/WhatsAppFloat";
 import FaceBookFloat from "./components/FaceBookFloat";
 
 const queryClient = new QueryClient();
-
-
 
 const App = () => (
   <HelmetProvider>
@@ -30,13 +28,6 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
-        {/* WhatsApp Floating Button */}
-        <div className="fixed bottom-5 right-5 z-[9999] flex gap-4">
-          <FaceBookFloat></FaceBookFloat>
-          <WhatsAppFloat></WhatsAppFloat>
-        <InstagramFloat ></InstagramFloat>
-
-        </div>
       </TooltipProvider>
     </QueryClientProvider>
   </HelmetProvider>

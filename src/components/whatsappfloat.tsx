@@ -6,7 +6,7 @@ const WhatsAppFloat: FC = () => {
   const message = encodeURIComponent("السلام عليكم ممكن التفاصيل ");
 
   return (
-    <div data-aos="fade-left">
+    <div >
       <a
         href={`https://wa.me/${phone}?text=${message}`}
         target="_blank"

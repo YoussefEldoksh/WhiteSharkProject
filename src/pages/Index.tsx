@@ -6,6 +6,9 @@ import ProductsSection from "@/components/ProductsSection";
 import WhyUsSection from "@/components/WhyUsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import FaceBookFloat from "@/components/FaceBookFloat";
+import InstagramFloat from "@/components/InstagramFloat";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 const Index = () => {
   // Schema.org Organization structured data
@@ -76,6 +79,11 @@ const Index = () => {
         <ProductsSection />
         <WhyUsSection />
         <ContactSection />
+                <div className="fixed bottom-5 right-5 md:bottom-8 md:right-8 z-[9999] flex gap-4">
+          <FaceBookFloat></FaceBookFloat>
+          <InstagramFloat></InstagramFloat>
+          <WhatsAppFloat></WhatsAppFloat>
+        </div>
         <Footer />
       </main>
     </>

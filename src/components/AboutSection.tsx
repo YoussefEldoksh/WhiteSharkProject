@@ -4,11 +4,11 @@ import 'aos/dist/aos.css';
 import { useEffect } from "react";
 const AboutSection = () => {
 
-      useEffect(()=>{
-        AOS.init({
-           duration: 1000,once: false,
-        });
-      },[]);
+    useEffect(()=>{
+      AOS.init({
+         duration: 1000,once: true,offset: 50 ,disable: window.innerWidth < 768 ? false : 'mobile'
+      });
+    },[]);
   const features = [
     {
       icon: Factory,

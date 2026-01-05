@@ -14,7 +14,7 @@ const HeroSection = () => {
 
   useEffect(()=>{
     AOS.init({
-       duration: 1000,once: false
+       duration: 1000,once: false,offset: 50 ,disable: window.innerWidth < 768 ? false : 'mobile'
     });
   },[]);
 
@@ -50,7 +50,7 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Logo */}
           <div className="mb-8 animate-fade-in">
-            <img  data-aos="flip-left"
+            <img  
               src={logo}
               alt="White Shark Logo"
               className="h-32 md:h-40 mx-auto object-contain drop-shadow-2xl"

@@ -6,9 +6,8 @@ const FaceBookFloat = () => {
   const faceBookUrl = "https://www.facebook.com/whiteshark.clean";
 
   return (
-    <div data-aos="fade-left">
+    <div >
       <a
-        className=""
         href={faceBookUrl}
         target="_blank"
         rel="noopener noreferrer"

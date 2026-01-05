@@ -2,17 +2,19 @@ import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.jpg";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Navbar = () => {
-
-    useEffect(()=>{
-      AOS.init({
-         duration: 1000,once: false,
-      });
-    },[]);
-
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 50,
+      disable: window.innerWidth < 768 ? false : "mobile",
+    });
+  }, []);
+  
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -41,7 +43,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav data-aos="fade-down"
+    <nav
       className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-card/95 backdrop-blur-md shadow-card"
@@ -92,9 +94,17 @@ const Navbar = () => {
             aria-label="القائمة"
           >
             {isOpen ? (
-              <X className={`h-6 w-6 ${isScrolled ? "text-foreground" : "text-primary-foreground"}`} />
+              <X
+                className={`h-6 w-6 ${
+                  isScrolled ? "text-foreground" : "text-primary-foreground"
+                }`}
+              />
             ) : (
-              <Menu className={`h-6 w-6 ${isScrolled ? "text-foreground" : "text-primary-foreground"}`} />
+              <Menu
+                className={`h-6 w-6 ${
+                  isScrolled ? "text-foreground" : "text-primary-foreground"
+                }`}
+              />
             )}
           </button>
         </div>
