@@ -24,7 +24,7 @@ const ProductsSection = () => {
     
   const products = [
     {
-      image: wireRack,
+      image: [wireRack,wireRack,wireRack],
       title: "spaghetti ليفه",
       description:
         "حوامل سلكية متينة من الستانلس ستيل، مصممة للاستخدام المكثف في المطابخ التجارية والمنزلية.",
@@ -32,7 +32,7 @@ const ProductsSection = () => {
       alt: "حوامل سلكية ستانلس ستيل للمطبخ - White Shark",
     },
     {
-      image: spongeScrubber,
+      image: [spongeScrubber,spongeScrubber,spongeScrubber],
       title: "ليف إسفنجي للتنظيف",
       description:
         "ليف تنظيف إسفنجي بألوان متعددة، فعال في إزالة البقع والأوساخ مع الحفاظ على الأسطح.",
@@ -40,7 +40,7 @@ const ProductsSection = () => {
       alt: "ليف إسفنجي ملون للتنظيف - White Shark",
     },
     {
-      image: cleaningProducts,
+      image: [cleaningProducts,cleaningProducts,cleaningProducts],
       title: "منتجات تنظيف متنوعة",
       description:
         "تشكيلة واسعة من منتجات التنظيف الصناعية والمنزلية بجودة عالية وأسعار الجملة.",
