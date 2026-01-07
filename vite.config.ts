@@ -8,17 +8,16 @@ export default defineConfig(({ mode }) => {
   // Start with react plugin
   const plugins = [react()];
 
-  // Add componentTagger only in development
-  if (mode === "development") {
-    plugins.push(componentTagger() as any); // type cast avoids TS error
-  }
+  
 
   return {
     server: {
       host: true,           // allow network access / ngrok
       port: 8080,
-      strictPort: true,
       allowedHosts: true,   // allow external hosts
+      hmr:{
+        overlay:false
+      }
     },
     plugins,
     resolve: {

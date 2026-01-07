@@ -6,12 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import { FaWhatsapp } from "react-icons/fa"; // using react-icons for WhatsApp icon
-import React from "react";
 import "./index.css";
-import InstagramFloat from "./components/InstagramFloat";
-import WhatsAppFloat from "./components/WhatsAppFloat";
-import FaceBookFloat from "./components/FaceBookFloat";
+
 
 const queryClient = new QueryClient();
 

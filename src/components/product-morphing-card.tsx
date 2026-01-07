@@ -1,25 +1,43 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { motion, AnimatePresence, MotionConfig, type Transition } from "framer-motion"
-import { X, ArrowLeft, CheckCircle2 } from "lucide-react"
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
+import * as React from "react";
+import {
+  motion,
+  AnimatePresence,
+  MotionConfig,
+  type Transition,
+} from "framer-motion";
+import { X, ArrowLeft, CheckCircle2 } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
 
 const TRANSITION: Transition = {
   type: "spring",
   stiffness: 260,
   damping: 30,
-}
+};
 
 interface ProductMorphingCardProps {
-  image: string[]
-  title: string
-  description: string
-  uses: string[]
-  alt: string
-  onRequestQuote: () => void
+  image: string[];
+  title: string;
+  description: string;
+  uses: string[];
+  alt: string;
+  products: {
+    image: string[];
+    title: string;
+    uses: string[];
+    alt: string;
+    description: string;
+  };
+  onRequestQuote: () => void;
 }
 
 export function ProductMorphingCard({
@@ -28,25 +46,26 @@ export function ProductMorphingCard({
   description,
   uses,
   alt,
+  products,
   onRequestQuote,
 }: ProductMorphingCardProps) {
-  const [isExpanded, setIsExpanded] = React.useState(false)
-  const uniqueId = React.useId()
+  const [isExpanded, setIsExpanded] = React.useState(false);
+  const uniqueId = React.useId();
 
   // Close on escape
   React.useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setIsExpanded(false)
-    }
+      if (e.key === "Escape") setIsExpanded(false);
+    };
     if (isExpanded) {
-      window.addEventListener("keydown", handleEsc)
-      document.body.style.overflow = "hidden"
+      window.addEventListener("keydown", handleEsc);
+      document.body.style.overflow = "hidden";
     }
     return () => {
-      window.removeEventListener("keydown", handleEsc)
-      document.body.style.overflow = "unset"
-    }
-  }, [isExpanded])
+      window.removeEventListener("keydown", handleEsc);
+      document.body.style.overflow = "unset";
+    };
+  }, [isExpanded]);
 
   return (
     <MotionConfig transition={TRANSITION}>
@@ -57,7 +76,7 @@ export function ProductMorphingCard({
           onClick={() => setIsExpanded(true)}
           className={cn(
             "bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-shadow duration-300 group cursor-pointer h-full flex flex-col",
-            isExpanded ? "opacity-0" : "opacity-100",
+            isExpanded ? "opacity-0" : "opacity-100"
           )}
         >
           <div className="relative h-56 overflow-hidden">
@@ -71,10 +90,15 @@ export function ProductMorphingCard({
           </div>
 
           <div className="p-6 flex flex-col flex-grow">
-            <motion.h3 layoutId={`title-${uniqueId}`} className="text-xl font-bold text-foreground mb-3">
+            <motion.h3
+              layoutId={`title-${uniqueId}`}
+              className="text-xl font-bold text-foreground mb-3"
+            >
               {title}
             </motion.h3>
-            <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-2">{description}</p>
+            <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-2">
+              {description}
+            </p>
 
             <div className="mt-auto">
               <div className="relative h-10 w-full">
@@ -82,7 +106,10 @@ export function ProductMorphingCard({
                   layoutId={`cta-container-${uniqueId}`}
                   className="absolute inset-0 bg-primary/10 border border-primary/20 text-primary rounded-md flex items-center justify-center gap-2 group/btn font-medium px-4"
                 >
-                  <motion.span layoutId={`cta-text-${uniqueId}`} className="text-sm">
+                  <motion.span
+                    layoutId={`cta-text-${uniqueId}`}
+                    className="text-sm"
+                  >
                     اطلب عرض سعر
                   </motion.span>
                   <motion.div layoutId={`cta-icon-${uniqueId}`}>
@@ -112,14 +139,14 @@ export function ProductMorphingCard({
                 dir="rtl"
               >
                 <div className="relative w-full md:w-1/2 h-48 md:h-auto shrink-0 overflow-hidden">
-                  <Carousel className="w-full h-full">
-                    <CarouselContent className="h-96">
-                      {image.map((img, index) => (
+                  <Carousel className=" w-full h-full">
+                    <CarouselContent className="h-96 flex flex-row-reverse">
+                      {products.image.map((img, index) => (
                         <CarouselItem key={index} className="h-full w-full">
                           <motion.img
-                            layoutId={index === 0 ? `image-${uniqueId}` : `image-${uniqueId}-${index}`}
+                            // layoutId={index === 0 ? `image-${uniqueId}` : `image-${uniqueId}-${index}`}
                             src={img}
-                            alt={`${alt} ${index + 1}`}
+                            alt={`${alt} ${index}`}
                             className="w-full md:h-full object-cover"
                           />
                         </CarouselItem>
@@ -142,7 +169,10 @@ export function ProductMorphingCard({
 
                 <div className="p-6 md:p-8 flex flex-col flex-1 overflow-y-auto">
                   <div className="flex items-start justify-between mb-4">
-                    <motion.h3 layoutId={`title-${uniqueId}`} className="text-2xl font-bold text-foreground">
+                    <motion.h3
+                      layoutId={`title-${uniqueId}`}
+                      className="text-2xl font-bold text-foreground"
+                    >
                       {title}
                     </motion.h3>
                     <button
@@ -159,10 +189,14 @@ export function ProductMorphingCard({
                     transition={{ delay: 0.1 }}
                     className="space-y-6"
                   >
-                    <p className="text-muted-foreground leading-relaxed">{description}</p>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {description}
+                    </p>
 
                     <div>
-                      <h4 className="font-bold text-foreground mb-3">الاستخدامات الشائعة:</h4>
+                      <h4 className="font-bold text-foreground mb-3">
+                        الاستخدامات الشائعة:
+                      </h4>
                       <div className="grid grid-cols-2 gap-3">
                         {uses.map((use, i) => (
                           <motion.div
@@ -189,16 +223,24 @@ export function ProductMorphingCard({
                         >
                           إغلاق
                         </Button>
-                        <motion.div layoutId={`cta-container-${uniqueId}`} className="flex-[2] relative h-11">
+                        <motion.div
+                          layoutId={`cta-container-${uniqueId}`}
+                          className="flex-[2] relative h-11"
+                        >
                           <Button
                             className="mt-1 p-4 w-full h-full rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/20"
                             onClick={() => {
-                              setIsExpanded(false)
-                              onRequestQuote()
+                              setIsExpanded(false);
+                              onRequestQuote();
                             }}
                           >
-                            <motion.span layoutId={`cta-text-${uniqueId}`}>اطلب عرض سعر الآن</motion.span>
-                            <motion.div layoutId={`cta-icon-${uniqueId}`} className="mr-2">
+                            <motion.span layoutId={`cta-text-${uniqueId}`}>
+                              اطلب عرض سعر الآن
+                            </motion.span>
+                            <motion.div
+                              layoutId={`cta-icon-${uniqueId}`}
+                              className="mr-2"
+                            >
                               <CheckCircle2 className="h-4 w-4" />
                             </motion.div>
                           </Button>
@@ -213,5 +255,5 @@ export function ProductMorphingCard({
         </AnimatePresence>
       </div>
     </MotionConfig>
-  )
+  );
 }
