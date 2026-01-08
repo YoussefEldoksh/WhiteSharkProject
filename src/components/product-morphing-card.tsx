@@ -7,7 +7,13 @@ import {
   MotionConfig,
   type Transition,
 } from "framer-motion";
-import { X, ArrowLeft, CheckCircle2 } from "lucide-react";
+import {
+  X,
+  ArrowLeft,
+  CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,6 +23,7 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel";
+import { useState } from "react";
 
 const TRANSITION: Transition = {
   type: "spring",
@@ -24,19 +31,21 @@ const TRANSITION: Transition = {
   damping: 30,
 };
 
+interface Product {
+  image: string[];
+  title: string;
+  uses: string[];
+  alt: string;
+  description: string;
+}
+
 interface ProductMorphingCardProps {
   image: string[];
   title: string;
   description: string;
   uses: string[];
   alt: string;
-  products: {
-    image: string[];
-    title: string;
-    uses: string[];
-    alt: string;
-    description: string;
-  };
+  products: Product[];
   onRequestQuote: () => void;
 }
 
@@ -52,6 +61,8 @@ export function ProductMorphingCard({
   const [isExpanded, setIsExpanded] = React.useState(false);
   const uniqueId = React.useId();
 
+  const [productIndex, setCurrentProductIndex] = useState(0); // pagination useState
+
   // Close on escape
   React.useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -66,6 +77,18 @@ export function ProductMorphingCard({
       document.body.style.overflow = "unset";
     };
   }, [isExpanded]);
+
+  const goToPreviousProduct = () => {
+    setCurrentProductIndex((prev) =>
+      prev === 0 ? products.length - 1 : prev - 1
+    );
+  };  
+
+  const goToNextProduct = () => {
+    setCurrentProductIndex((prev) =>
+      prev === products.length - 1 ? 0 : prev + 1
+    );
+  };
 
   return (
     <MotionConfig transition={TRANSITION}>
@@ -138,16 +161,16 @@ export function ProductMorphingCard({
                 className="fixed inset-x-4 top-[5%] bottom-[5%] md:inset-auto md:top-1/4 md:right-1/4 md:-translate-x-1/2 md:-translate-y-1/2 w-auto md:w-full md:max-w-3xl md:max-h-[100vh] bg-card rounded-3xl overflow-hidden shadow-2xl z-[51] flex flex-col md:flex-row"
                 dir="rtl"
               >
-                <div className="relative w-full md:w-1/2 h-48 md:h-auto shrink-0 overflow-hidden">
-                  <Carousel className=" w-full h-full">
-                    <CarouselContent className="h-96 flex flex-row-reverse">
-                      {products.image.map((img, index) => (
-                        <CarouselItem key={index} className="h-full w-full">
+                <div className="relative w-full md:w-1/2 sm:h-auto md:h-auto shrink-0 overflow-hidden">
+                  <Carousel className="  w-full h-full flex items-center justify-center bg-gray-50">
+                    <CarouselContent className="h-96 flex  items-center justify-center">
+                      {products[productIndex].image.map((img, index) => (
+                        <CarouselItem key={index} className="w-98 h-auto">
                           <motion.img
-                            // layoutId={index === 0 ? `image-${uniqueId}` : `image-${uniqueId}-${index}`}
+                            layoutId={index === 0 ? `image-${uniqueId}` : `image-${uniqueId}-${index}`}
                             src={img}
                             alt={`${alt} ${index}`}
-                            className="w-full md:h-full object-cover"
+                            className="w-98 h-auto object-cover"
                           />
                         </CarouselItem>
                       ))}
@@ -173,7 +196,7 @@ export function ProductMorphingCard({
                       layoutId={`title-${uniqueId}`}
                       className="text-2xl font-bold text-foreground"
                     >
-                      {title}
+                      {products[productIndex].title}
                     </motion.h3>
                     <button
                       onClick={() => setIsExpanded(false)}
@@ -190,15 +213,15 @@ export function ProductMorphingCard({
                     className="space-y-6"
                   >
                     <p className="text-muted-foreground leading-relaxed">
-                      {description}
+                      {products[productIndex].description}
                     </p>
 
                     <div>
                       <h4 className="font-bold text-foreground mb-3">
-                        الاستخدامات الشائعة:
+                       الاحجام المتاحة:
                       </h4>
                       <div className="grid grid-cols-2 gap-3">
-                        {uses.map((use, i) => (
+                        {products[productIndex].uses.map((use, i) => (
                           <motion.div
                             key={i}
                             initial={{ opacity: 0, x: -10 }}
@@ -214,10 +237,34 @@ export function ProductMorphingCard({
                     </div>
 
                     <div className="pt-6 border-t mt-auto">
-                      <div className="flex gap-4">
+                      <div>
+                        {products.length > 0 && (
+                          <div className="flex items-center justify-center gap-4 mb-4">
+                            <button
+                              onClick={goToNextProduct}
+                              className="p-2 rounded-full bg-muted hover:bg-muted/80 text-foreground transition-colors"
+                              aria-label="Next product"
+                            >
+                              <ChevronRight className="w-5 h-5" />
+                            </button>
+                            <div className="bg-muted px-3 py-1 rounded-full text-foreground text-sm font-medium">
+                              {products.length} / {productIndex + 1}
+                            </div>
+                            <button
+                              onClick={goToPreviousProduct}
+                              className="p-2 rounded-full bg-muted hover:bg-muted/80 text-foreground transition-colors"
+                              aria-label="Previous product"
+                            >
+                              <ChevronLeft className="w-5 h-5" />
+                            </button>
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="flex items-center justify-center gap-4">
                         <Button
                           variant="outline"
-                          size="lg"
+                          size="sm"
                           className="flex-1 rounded-xl bg-transparent"
                           onClick={() => setIsExpanded(false)}
                         >
@@ -228,14 +275,14 @@ export function ProductMorphingCard({
                           className="flex-[2] relative h-11"
                         >
                           <Button
-                            className="mt-1 p-4 w-full h-full rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+                            className="p-4 w-full h-full rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/20"
                             onClick={() => {
                               setIsExpanded(false);
                               onRequestQuote();
                             }}
                           >
                             <motion.span layoutId={`cta-text-${uniqueId}`}>
-                              اطلب عرض سعر الآن
+                              اطلب عرض الكتالوج الآن
                             </motion.span>
                             <motion.div
                               layoutId={`cta-icon-${uniqueId}`}

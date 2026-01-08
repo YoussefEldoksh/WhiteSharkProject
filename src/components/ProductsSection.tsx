@@ -2,16 +2,46 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import wireRack from "@/assets/wire-rack.jpg";
 import spaghetti from "@/assets/spaghetti.jpg";
-import cleaningProduct1 from "@/assets/assorted-cleaning-products-wholesale.jpg"
-
+import cleaningProduct1 from "@/assets/assorted-cleaning-products-wholesale.jpg";
 
 import spongeScrubber from "@/assets/sponge-scrubber.jpg";
-import spongeScrubber2 from "@/assets/صور منتجات سكوتش القرش/سكوتش بريمو 02.jpg"
-import spongeScrubber3 from "@/assets/صور منتجات سكوتش القرش/سكوتش بريمو 03.jpg"
-import spongeScrubber4 from "@/assets/صور منتجات سكوتش القرش/فليكس باد 02.jpg"
-import spongeScrubber5 from "@/assets/صور منتجات سكوتش القرش/فليكس باد 33.jpg" 
-import spongeScrubber6 from "@/assets/صور منتجات سكوتش القرش/فليكس باد.jpg"
+import spongeScrubber2 from "@/assets/صور منتجات سكوتش القرش/سكوتش بريمو 02.jpg";
+import spongeScrubber3 from "@/assets/صور منتجات سكوتش القرش/سكوتش بريمو 03.jpg";
+import spongeScrubber9 from "@/assets/صور منتجات سكوتش القرش/سكوتش جامبو .jpg";
+import spongeScrubber4 from "@/assets/صور منتجات سكوتش القرش/فليكس باد 02.jpg";
+import spongeScrubber5 from "@/assets/صور منتجات سكوتش القرش/فليكس باد 33.jpg";
+import spongeScrubber6 from "@/assets/صور منتجات سكوتش القرش/فايبر 001.png";
+import spongeScrubber7 from "@/assets/صور منتجات سكوتش القرش/فليكس باد.jpg";
 
+import wireProduct1 from "@/assets/صور منتجات سلك القرش/1B6A2083.jpg";
+import wireProduct3 from "@/assets/صور منتجات سلك القرش/1B6A4306.jpg";
+import wireProduct2 from "@/assets/صور منتجات سلك القرش/MEITU_20251214_122503805.png";
+import wireProduct4 from "@/assets/صور منتجات سلك القرش/MEITU_20251214_130129808.png";
+import wireProduct5 from "@/assets/صور منتجات سلك القرش/سلك 3.jpg";
+import wireProduct6 from "@/assets/صور منتجات سلك القرش/سلك جامبو 01.png";
+import wireProduct7 from "@/assets/صور منتجات سلك القرش/قطعه كارت سلك القرش.jpg";
+import wireProduct9 from "@/assets/صور منتجات سلك القرش/كرت سلك اقرش.jpg";
+import wireProduct10 from "@/assets/صور منتجات سلك القرش/كرت سلك القرش.png";
+import wireProduct11 from "@/assets/صور منتجات سلك القرش/كرتونه سلك 3.jpg";
+import wireProduct12 from "@/assets/صور منتجات سلك القرش/كرتونه سلك جامبو.jpg";
+
+import smartProduct1 from "@/assets/صور منتجات ذكيه القرش/ذكيه 1 ق 01.jpg";
+import smartProduct2 from "@/assets/صور منتجات ذكيه القرش/ذكيه 3-3.jpg";
+import smartProduct3 from "@/assets/صور منتجات ذكيه القرش/ذكيه القرش .jpg";
+import smartProduct4 from "@/assets/صور منتجات ذكيه القرش/كرتونه ذكيه 1 ق.jpg";
+import smartProduct5 from "@/assets/صور منتجات ذكيه القرش/كرتونه ذكيه القرش.jpg";
+
+import otherProducts1 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٧٣٠٣٢.jpg";
+import otherProducts2 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٧٣٤٠٦.jpg";
+import otherProducts3 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٧٣٨١٦.jpg";
+import otherProducts4 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٧٤٠٠٢.jpg";
+import otherProducts5 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٧٤٩٤٦.jpg";
+import otherProducts6 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٧٥٢٤٩.jpg";
+import otherProducts7 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٧٥٩٥١.jpg";
+import otherProducts8 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٨٠٢٣٤.jpg";
+import otherProducts9 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٨٢٧٣٦.jpg";
+import otherProducts10 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٨٢٨٤٠.jpg";
+import otherProducts11 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١١٦_١٣١٨٤٦.jpg";
 
 import cleaningProducts from "@/assets/cleaning-products.jpg";
 import AOS from "aos";
@@ -37,67 +67,190 @@ const ProductsSection = () => {
 
   const products = [
     {
-      image: [wireRack],
-      title: "spaghetti ليفه",
+      image: [wireProduct1],
+      title: "سلك ستانلس",
       description:
-        "حوامل سلكية متينة من الستانلس ستيل، مصممة للاستخدام المكثف في المطابخ التجارية والمنزلية.",
+        "سلك ستانلس ستيل غير قابل للصدا عالي الجودة لتنظيف فعال وآمن",
       uses: ["مطابخ المطاعم", "الفنادق", "المنازل", "المستشفيات"],
       alt: "حوامل سلكية ستانلس ستيل للمطبخ - White Shark",
-      products: {
-        image: [
-          wireRack,
-          "../assets/stainless-steel-wire-rack-kitchen.jpg",
-          "../assets/stainless-steel-wire-rack.jpg",
-        ],
-        title: "spaghetti ليفه",
-        description:
-          "حوامل سلكية متينة من الستانلس ستيل، مصممة للاستخدام المكثف في المطابخ التجارية والمنزلية.",
-        uses: ["مطابخ المطاعم", "الفنادق", "المنازل", "المستشفيات"],
-        alt: "حوامل سلكية ستانلس ستيل للمطبخ - White Shark",
-      },
+      products: [
+        {
+          image: [
+            wireProduct11,
+            wireProduct2,
+            wireProduct3,
+            wireProduct4,
+            wireProduct5,
+            wireProduct6,
+            wireProduct7,
+            wireProduct12,
+            wireProduct9,
+            wireProduct10,
+            wireProduct1,
+            "../assets/stainless-steel-wire-rack.jpg",
+            "../assets/stainless-steel-wire-rack.jpg",
+            "../assets/stainless-steel-wire-rack.jpg",
+            "../assets/stainless-steel-wire-rack.jpg",
+            "../assets/stainless-steel-wire-rack.jpg",
+            "../assets/stainless-steel-wire-rack.jpg",
+            "../assets/stainless-steel-wire-rack.jpg",
+            "../assets/stainless-steel-wire-rack.jpg",
+            "../assets/stainless-steel-wire-rack.jpg",
+            "../assets/stainless-steel-wire-rack.jpg",
+          ],
+          title: "سلك ستانلس",
+          description:
+            "تخلص من الأوساخ العنيدة والبقع المستعصية بكل سهولة! سلك التنظيف المصنوع من الفولاذ المقاوم للصدأ يعطيك نتائج احترافية في ثوانٍ معدودة",
+          uses: ["12 جرام", "13 جرام", "19 جرام", "سلك شبك"],
+          alt: "حوامل سلكية ستانلس ستيل للمطبخ - White Shark",
+        },
+      ],
     },
     {
-      image: [spongeScrubber],
-      title: "ليف إسفنجي للتنظيف",
+      image: [spongeScrubber4],
+      title: "منتجات سكوتش القرش",
       description:
         "ليف تنظيف إسفنجي بألوان متعددة، فعال في إزالة البقع والأوساخ مع الحفاظ على الأسطح.",
       uses: ["تنظيف الأواني", "الأسطح", "البلاط", "الأجهزة"],
       alt: "ليف إسفنجي ملون للتنظيف - White Shark",
-      products: {
-        image: [
-          spongeScrubber,
-          spongeScrubber2,
-          spongeScrubber3,
-          spongeScrubber4,
-          spongeScrubber5,
-          spongeScrubber6
-        ],
-        title: "ليف إسفنجي للتنظيف",
-        description:
-          "ليف تنظيف إسفنجي بألوان متعددة، فعال في إزالة البقع والأوساخ مع الحفاظ على الأسطح.",
-        uses: ["تنظيف الأواني", "الأسطح", "البلاط", "الأجهزة"],
-        alt: "ليف إسفنجي ملون للتنظيف - White Shark",
-      },
+      products: [
+        {
+          image: [
+            spongeScrubber2,
+            otherProducts8,
+            spongeScrubber9,
+            spongeScrubber3,
+            otherProducts4,
+            otherProducts5,
+            otherProducts6,
+            "../assets/stainless-steel-wire-rack.jpg",
+            "../assets/stainless-steel-wire-rack.jpg",
+            "../assets/stainless-steel-wire-rack.jpg",
+            "../assets/stainless-steel-wire-rack.jpg",
+            "../assets/stainless-steel-wire-rack.jpg",
+            "../assets/stainless-steel-wire-rack.jpg",
+          ],
+          title: "ليف سكوتش القرش للتنظيف",
+          description:
+            "ليف تنظيف إسفنجي مصنعة من ( طبة فايبر قوية+ إسفينج معالج ضد البكتريا )، فعال في إزالة البقع والأوساخ مع الحفاظ على الأسطح",
+          uses: ["جحم بريمو", "جحم وسط", "جحم جامبو"],
+          alt: "ليف سكوتش القرش للتنظيف - White Shark",
+        },
+        {
+          image: [
+            otherProducts10,
+            spongeScrubber7,
+            spongeScrubber5,
+            spongeScrubber4,
+            "../assets/stainless-steel-wire-rack.jpg",
+            "../assets/stainless-steel-wire-rack.jpg",
+            "../assets/stainless-steel-wire-rack.jpg",
+          ],
+          title: "فليكس باد",
+          description:
+            "ليف تنظيف إسفنجي مصنعة من ( طبة فايبر قوية+ إسفينج معالج ضد البكتريا )، فعال في إزالة البقع والأوساخ مع الحفاظ على الأسطح",
+          uses: ["فليكس باد 5 قطعة ", "فليكس باد 2 قطعة"],
+          alt: "ليف إسفنجي ملون للتنظيف - White Shark",
+        },
+        {
+          image: [spongeScrubber6],
+          title: "ليف  فايبر",
+          description:
+            "ليف تنظيف إسفنجي مصنعة من ( طبة فايبر قوية+ إسفينج معالج ضد البكتريا )، فعال في إزالة البقع والأوساخ مع الحفاظ على الأسطح.",
+          uses: ["فايبر 6 قطع"],
+          alt: "ليف إسفنجي ملون للتنظيف - White Shark",
+        },
+      ],
     },
     {
-      image: [cleaningProducts],
-      title: "منتجات تنظيف متنوعة",
+      image: [smartProduct1],
+      title: "منتجات ذكية",
+      description: "مصنعة من ( سلك ستانلس + إسفينج معالج ضد البكتريا )",
+      uses: ["سلك المواعين", "ليف الفايبر", "فوط التنظيف", "إسفنج متعدد"],
+      alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
+      products: [
+        {
+          image: [
+            smartProduct5,  
+            smartProduct2,
+            smartProduct3,
+            smartProduct4,
+            smartProduct1,
+            "../assets/stainless-steel-wire-rack.jpg",
+            "../assets/stainless-steel-wire-rack.jpg",
+            "../assets/stainless-steel-wire-rack.jpg",
+            "../assets/stainless-steel-wire-rack.jpg",
+          ],
+          title: "الليفة الذكية",
+          description: "مصنعة من ( سلك ستانلس + إسفينج معالج ضد البكتريا )",
+          uses: ["جحم جامبو", "جحم متوسط"],
+          alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
+        },
+      ],
+    },
+    {
+      image: [otherProducts1],
+      title: "منتجات اخري",
       description:
         "تشكيلة واسعة من منتجات التنظيف الصناعية والمنزلية بجودة عالية وأسعار الجملة.",
       uses: ["سلك المواعين", "ليف الفايبر", "فوط التنظيف", "إسفنج متعدد"],
       alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
-      products: {
-        image: [
-          wireRack,
-           cleaningProduct1,
-          "../assets/stainless-steel-wire-rack.jpg",  
-        ],
-        title: "منتجات تنظيف متنوعة",
-        description:
-          "تشكيلة واسعة من منتجات التنظيف الصناعية والمنزلية بجودة عالية وأسعار الجملة.",
-        uses: ["سلك المواعين", "ليف الفايبر", "فوط التنظيف", "إسفنج متعدد"],
-        alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
-      },
+      products: [
+        {
+          image: [
+            otherProducts3,
+          ],
+          title: "سيلفر",
+          description:
+            "مصنعة من ( خيط بلاستكية + إسفينج معالج ضد البكتريا )",
+          uses: ["سيلفر 6 قطع ", "سيلفر 3 قطع"],
+          alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
+        },
+        {
+          image: [
+            wireRack,
+            cleaningProduct1,
+            "../assets/stainless-steel-wire-rack.jpg",
+          ],
+          title: "مرجانة",
+          description:
+            "مصنعة من ( خيط بلاستكية + إسفينج معالج ضد البكتريا )",
+          uses: ["مرجانة 2 قطعة"],
+          alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
+        },
+      ],
+    },
+    {
+      image: [otherProducts1],
+      title: "منتجات اخري",
+      description:
+        "تشكيلة واسعة من منتجات التنظيف الصناعية والمنزلية بجودة عالية وأسعار الجملة.",
+      uses: ["سلك المواعين", "ليف الفايبر", "فوط التنظيف", "إسفنج متعدد"],
+      alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
+      products: [
+        {
+          image: [
+            otherProducts3,
+          ],
+          title: "سيلفر",
+          description:
+            "مصنعة من ( خيط بلاستكية + إسفينج معالج ضد البكتريا )",
+          uses: ["سيلفر 6 قطع ", "سيلفر 3 قطع"],
+          alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
+        },
+        {
+          image: [
+            wireRack,
+            cleaningProduct1,
+            "../assets/stainless-steel-wire-rack.jpg",
+          ],
+          title: "مرجانة",
+          description:
+            "مصنعة من ( خيط بلاستكية + إسفينج معالج ضد البكتريا )",
+          uses: ["مرجانة 2 قطعة"],
+          alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
+        },
+      ],
     },
   ];
 
