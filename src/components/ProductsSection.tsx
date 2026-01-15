@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
-import wireRack from "@/assets/wire-rack.jpg";
 import spaghetti from "@/assets/spaghetti.jpg";
-import cleaningProduct1 from "@/assets/assorted-cleaning-products-wholesale.jpg";
+
 
 import spongeScrubber from "@/assets/sponge-scrubber.jpg";
 import spongeScrubber2 from "@/assets/صور منتجات سكوتش القرش/سكوتش بريمو 02.jpg";
@@ -43,6 +42,9 @@ import otherProducts9 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥
 import otherProducts10 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٨٢٨٤٠.jpg";
 import otherProducts11 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١١٦_١٣١٨٤٦.jpg";
 
+import logo from "@/assets/logo.jpg"
+
+
 import cleaningProducts from "@/assets/cleaning-products.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -70,7 +72,7 @@ const ProductsSection = () => {
       image: [wireProduct1],
       title: "سلك ستانلس",
       description:
-        "سلك ستانلس ستيل غير قابل للصدا عالي الجودة لتنظيف فعال وآمن",
+        "تخلص من الأوساخ العنيدة والبقع المستعصية بكل سهولة! سلك التنظيف المصنوع من الفولاذ المقاوم للصدأ يعطيك نتائج احترافية في ثوانٍ معدودة",
       uses: ["مطابخ المطاعم", "الفنادق", "المنازل", "المستشفيات"],
       alt: "حوامل سلكية ستانلس ستيل للمطبخ - White Shark",
       products: [
@@ -165,7 +167,7 @@ const ProductsSection = () => {
     {
       image: [smartProduct1],
       title: "منتجات ذكية",
-      description: "مصنعة من ( سلك ستانلس + إسفينج معالج ضد البكتريا )",
+          description: "تجمع بين قوة السلك الاستانلس في التنظيف السريع والفعال وبين الاسفنج عالي الكثافة,فهي الحل الأمثل لمن يبحث عن السرعة والكفاءة ",
       uses: ["سلك المواعين", "ليف الفايبر", "فوط التنظيف", "إسفنج متعدد"],
       alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
       products: [
@@ -182,14 +184,14 @@ const ProductsSection = () => {
             "../assets/stainless-steel-wire-rack.jpg",
           ],
           title: "الليفة الذكية",
-          description: "مصنعة من ( سلك ستانلس + إسفينج معالج ضد البكتريا )",
+          description: "تجمع بين قوة السلك الاستانلس في التنظيف السريع والفعال وبين الاسفنج عالي الكثافة,فهي الحل الأمثل لمن يبحث عن السرعة والكفاءة ",
           uses: ["جحم جامبو", "جحم متوسط"],
           alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
         },
       ],
     },
     {
-      image: [otherProducts1],
+      image: [otherProducts3],
       title: "منتجات اخري",
       description:
         "تشكيلة واسعة من منتجات التنظيف الصناعية والمنزلية بجودة عالية وأسعار الجملة.",
@@ -208,21 +210,19 @@ const ProductsSection = () => {
         },
         {
           image: [
-            wireRack,
-            cleaningProduct1,
-            "../assets/stainless-steel-wire-rack.jpg",
+              logo
           ],
           title: "مرجانة",
           description:
-            "مصنعة من ( خيط بلاستكية + إسفينج معالج ضد البكتريا )",
+            "تتميز بتقنية فريدة حيث تنسد خيوط بلاستيكية مما يمنحها اداءا قويا متماسكا, مما يجعلها الخيار المثالي للمطاعم والفنادق ",
           uses: ["مرجانة 2 قطعة"],
           alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
         },
       ],
     },
     {
-      image: [otherProducts1],
-      title: "منتجات اخري",
+      image: [otherProducts7],
+      title: "ليف شعر",
       description:
         "تشكيلة واسعة من منتجات التنظيف الصناعية والمنزلية بجودة عالية وأسعار الجملة.",
       uses: ["سلك المواعين", "ليف الفايبر", "فوط التنظيف", "إسفنج متعدد"],
@@ -230,24 +230,36 @@ const ProductsSection = () => {
       products: [
         {
           image: [
-            otherProducts3,
+            otherProducts7,
           ],
-          title: "سيلفر",
+          title: "خرابيش",
           description:
-            "مصنعة من ( خيط بلاستكية + إسفينج معالج ضد البكتريا )",
-          uses: ["سيلفر 6 قطع ", "سيلفر 3 قطع"],
+            "تعتبر ليفة خرابيش واحدة من افضل الاختيارات في عالم الليف النايلون حيث تجمع بين القوة والاداء العالي",
+          uses: ["6x", "2x", "3x"],
           alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
         },
         {
-          image: [
-            wireRack,
-            cleaningProduct1,
-            "../assets/stainless-steel-wire-rack.jpg",
-          ],
-          title: "مرجانة",
+          image: [logo],
+          title: "نيمو",
           description:
-            "مصنعة من ( خيط بلاستكية + إسفينج معالج ضد البكتريا )",
-          uses: ["مرجانة 2 قطعة"],
+            "تعتبر ليفة نيمو من تكثر المنتدات جاذبية خاصة بين السيدات بفضل ألوانها الفسفورية الجذابة ,البمبي ,البرتقالي و الأخضر الفسفوري ",
+          uses: ["2x نيمو","3x نيمو","6x نيمو"],
+          alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
+        },
+        {
+          image: [otherProducts1],
+          title: "فلامينجو",
+          description:
+            "تأتي بثلاثة ألوان متناسقة الأحمر والأصفر والأزرق  كل لون لأستخدام في مطبخك  بالأضافة لخشونتها المناسبة ",
+          uses: ["3x فلامينجو"],
+          alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
+        },
+        {
+          image: [spaghetti],
+          title: "سباجيتي",
+          description:
+            "تتميز بتصميم فريد وجديد خشونتها المناسبة لتنظيف الصلصة الملتصقة بالأطباق والأواني بكفاءة وفاعلية سريعة  ",
+          uses: ["3x سباجيتي"],
           alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
         },
       ],

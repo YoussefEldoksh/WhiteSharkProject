@@ -36,7 +36,7 @@ const ContactSection = () => {
     // Simulate form submission
 
     try {
-      const response = await fetch("https://formspree.io/f/meeokqob", {
+      const response = await fetch("https://formspree.io/f/xwvvewzq", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -125,7 +125,7 @@ const ContactSection = () => {
           className="grid lg:grid-cols-2 row-span-2  gap-12"
         >
           {/* Contact Form */}
-          <div className="bg-card p-8 rounded-2xl shadow-card">
+          <div className="grid grid-row-2 h-fit bg-card p-8 rounded-2xl shadow-card">
             <h3 className="text-2xl font-bold text-foreground mb-6">
               أرسل لنا رسالة
             </h3>
@@ -280,23 +280,7 @@ const ContactSection = () => {
               </div>
             </div>
 
-            {/* WhatsApp CTA */}
-            <a
-              href="https://wa.me/201114259777?text=مرحباً، أريد الاستفسار عن منتجات White Shark"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-            >
-              <div className="bg-[#25D366] p-6 rounded-2xl text-center hover:bg-[#22c55e] transition-colors">
-                <MessageCircle className="h-10 w-10 text-white mx-auto mb-3" />
-                <h4 className="text-xl font-bold text-white mb-2">
-                  تواصل عبر واتساب
-                </h4>
-                <p className="text-white/90 text-sm">
-                  للرد السريع والمباشر على استفساراتك
-                </p>
-              </div>
-            </a>
+
 
             {/* Map Placeholder */}
             <div className="bg-card rounded-2xl overflow-hidden shadow-card h-64">
