@@ -171,6 +171,7 @@ export function ProductMorphingCard({
                             src={img}
                             alt={`${alt} ${index}`}
                             className="w-98 h-auto object-cover"
+                            loading="lazy"
                           />
                         </CarouselItem>
                       ))}

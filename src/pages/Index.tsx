@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import FaceBookFloat from "@/components/FaceBookFloat";
 import InstagramFloat from "@/components/InstagramFloat";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import logo from "@/assets/logo.jpg"
 
 const Index = () => {
   // Schema.org Organization structured data
@@ -42,6 +43,7 @@ const Index = () => {
     <>
       <Helmet>
         <html lang="ar" dir="rtl" />
+        <link rel="icon" href={logo} />
         <title>White Shark | تصنيع منتجات التنظيف بالجملة - حوامل سلكية وليف تنظيف</title>
         <meta 
           name="description" 
@@ -72,7 +74,7 @@ const Index = () => {
         </script>
       </Helmet>
 
-      <main className="min-h-screen">
+      <main className="min-h-screen ">
         <Navbar />
         <HeroSection />
         <AboutSection />

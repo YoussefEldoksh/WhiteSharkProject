@@ -1,6 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
-import spaghetti from "@/assets/spaghetti.jpg";
+import React, { lazy } from 'react';
+
+
+import spaghetti from "@/assets/IMG_٢٠٢٥١٢٠٦_١٥٢٦٣٢.jpg";
+import spaghetti2 from "@/assets/IMG_٢٠٢٥١٢٠٦_١٥٢٧٠٩.jpg";
 
 
 import spongeScrubber from "@/assets/sponge-scrubber.jpg";
@@ -41,6 +45,9 @@ import otherProducts8 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥
 import otherProducts9 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٨٢٧٣٦.jpg";
 import otherProducts10 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٨٢٨٤٠.jpg";
 import otherProducts11 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١١٦_١٣١٨٤٦.jpg";
+
+import nemo from "@/assets/1000226047.jpg"
+import nemo2 from "@/assets/1000226044.jpg"
 
 import logo from "@/assets/logo.jpg"
 
@@ -239,7 +246,7 @@ const ProductsSection = () => {
           alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
         },
         {
-          image: [logo],
+          image: [nemo, nemo2,"../assets/stainless-steel-wire-rack.jpg", ],
           title: "نيمو",
           description:
             "تعتبر ليفة نيمو من تكثر المنتدات جاذبية خاصة بين السيدات بفضل ألوانها الفسفورية الجذابة ,البمبي ,البرتقالي و الأخضر الفسفوري ",
@@ -255,7 +262,7 @@ const ProductsSection = () => {
           alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
         },
         {
-          image: [spaghetti],
+          image: [spaghetti2],
           title: "سباجيتي",
           description:
             "تتميز بتصميم فريد وجديد خشونتها المناسبة لتنظيف الصلصة الملتصقة بالأطباق والأواني بكفاءة وفاعلية سريعة  ",
