@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import {
   motion,
@@ -27,8 +25,14 @@ import { useState } from "react";
 
 const TRANSITION: Transition = {
   type: "spring",
-  stiffness: 260,
-  damping: 30,
+  stiffness: 600,
+  damping: 50,
+  mass: 0.2,
+  restDelta: 5,
+  restSpeed: 0.1,
+  delay: 0,
+  velocity: 50
+
 };
 
 interface Product {
@@ -98,7 +102,7 @@ export function ProductMorphingCard({
           layoutId={`card-${uniqueId}`}
           onClick={() => setIsExpanded(true)}
           className={cn(
-            "bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-shadow duration-300 group cursor-pointer h-full flex flex-col",
+            "bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-shadow duration-300 group cursor-pointer h-full flex flex-col will-change-transform",
             isExpanded ? "opacity-0" : "opacity-100"
           )}
         >
@@ -107,7 +111,7 @@ export function ProductMorphingCard({
               layoutId={`image-${uniqueId}`}
               src={image[0]}
               alt={alt}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 will-change-transform"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent" />
           </div>
@@ -154,18 +158,20 @@ export function ProductMorphingCard({
                 exit={{ opacity: 0 }}
                 onClick={() => setIsExpanded(false)}
                 className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
+                style={{ contain: "layout style paint" }}
               />
 
               <motion.div
                 layoutId={`card-${uniqueId}`}
-                className="fixed inset-x-4 top-[5%] bottom-[5%] md:inset-auto md:top-1/4 md:right-1/4 md:-translate-x-1/2 md:-translate-y-1/2 w-auto md:w-full md:max-w-3xl md:max-h-[100vh] bg-card rounded-3xl overflow-hidden shadow-2xl z-[51] flex flex-col md:flex-row"
+                className="fixed inset-x-4 top-[5%] bottom-[5%] md:inset-auto md:top-1/4 md:right-1/4 md:-translate-x-1/2 md:-translate-y-1/2 w-auto md:w-full md:max-w-3xl md:max-h-[100vh] bg-card rounded-3xl overflow-hidden shadow-2xl z-[51] flex flex-col md:flex-row will-change-transform"
                 dir="rtl"
+                 style={{ contain: "layout style paint" }}
               >
-                <div className="relative w-full md:w-1/2 sm:h-auto md:h-auto shrink-0 overflow-hidden">
+                <div className="relative w-full  md:w-2/5 sm:h-auto md:h-auto shrink-0 overflow-hidden will-change-transform">
                   <Carousel className="  w-full h-full flex items-center justify-center bg-gray-50">
                     <CarouselContent className="h-96 flex  items-center justify-center">
                       {products[productIndex].image.map((img, index) => (
-                        <CarouselItem key={index} className="w-98 h-auto">
+                        <CarouselItem key={`${productIndex}-${index}`} className="w-98 h-auto">
                           <motion.img
                             layoutId={index === 0 ? `image-${uniqueId}` : `image-${uniqueId}-${index}`}
                             src={img}

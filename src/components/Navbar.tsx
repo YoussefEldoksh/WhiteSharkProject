@@ -6,14 +6,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Navbar = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      offset: 50,
-      disable: window.innerWidth < 768 ? false : "mobile",
-    });
-  }, []);
+
   
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,10 +37,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 right-0 left-0 z-50   transition-all duration-300 ${
         isScrolled
           ? "bg-card/95 backdrop-blur-md shadow-card"
-          : "bg-transparent"
+          : "bg-card/95 backdrop-blur-md shadow-card"
       }`}
       dir="rtl"
     >
@@ -57,8 +50,8 @@ const Navbar = () => {
           <div className="flex items-center">
             <img
               src={logo}
-              alt="White Shark - شركة القرش الأبيض لمنتجات التنظيف"
-              className="h-14 w-auto object-contain"
+              alt="White Shark - شركة القرش الأبيض لمنتجات التنظيف" 
+              className="h-14 w-auto object-contain  mix-blend-multiply"
             />
           </div>
 
@@ -69,7 +62,7 @@ const Navbar = () => {
                 key={link.href}
                 onClick={() => scrollToSection(link.href)}
                 className={`font-medium transition-colors duration-200 hover:text-primary ${
-                  isScrolled ? "text-foreground" : "text-primary-foreground"
+                  isScrolled ? "text-foreground" : "text-foreground"
                 }`}
               >
                 {link.label}
@@ -96,13 +89,13 @@ const Navbar = () => {
             {isOpen ? (
               <X
                 className={`h-6 w-6 ${
-                  isScrolled ? "text-foreground" : "text-primary-foreground"
+                  isScrolled ? "text-foreground" : "text-foreground"
                 }`}
               />
             ) : (
               <Menu
-                className={`h-6 w-6 ${
-                  isScrolled ? "text-foreground" : "text-primary-foreground"
+                className={`h-8 w-7 ${
+                  isScrolled ? "text-foreground" : "text-foreground"
                 }`}
               />
             )}

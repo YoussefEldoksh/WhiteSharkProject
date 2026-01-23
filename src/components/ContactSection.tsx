@@ -3,40 +3,76 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Send,
+  MessageCircle,
+  Download,
+} from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-const ContactSection = () => {
+import { useForm } from "react-hook-form";
+// import { PhoneInput } from "./Phone-input";
 
-    useEffect(()=>{
-      AOS.init({
-         duration: 1000,once: true,offset: 50 ,disable: window.innerWidth < 768 ? false : 'mobile'
-      });
-    },[]);
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+
+import pdf from "@/assets/داتا منتجات.pdf";
+
+const ContactSection = () => {
+  const {
+    register,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 50,
+      disable: window.innerWidth < 768 ? false : "mobile",
+    });
+  }, []);
   const { toast } = useToast();
+
   const [formData, setFormData] = useState({
     name: "",
     company: "",
+    countryCode: "",
+    countryName: "",
     phone: "",
     email: "",
     message: "",
   });
+
+  const [isValid, setIsValid] = useState(false);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handlePhoneChange = (value, data) => {
+    setFormData({
+      ...formData,
+      phone: value, // Full phone number including dial code
+      countryCode: `+${data.dialCode}`,
+      countryName: data.name,
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
+    // https://formspree.io/f/xwvvewzq
     // Simulate form submission
-
     try {
-      const response = await fetch("https://formspree.io/f/xwvvewzq", {
+      const response = await fetch("https://formspree.io/f/meeokqob", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,21 +89,23 @@ const ContactSection = () => {
         description: "سنتواصل معك في أقرب وقت ممكن.",
       });
 
+      console.log(formData);
+
       setFormData({
         name: "",
         company: "",
+        countryCode: "",
+        countryName: "",
         phone: "",
         email: "",
         message: "",
       });
+
       setIsSubmitting(false);
-      const data = await response.json();
-      console.log("Success:", data);
+      setIsValid(true);
     } catch (error) {
       console.error("Error submitting form:", error);
     }
-
-    console.log(formData);
   };
 
   const contactInfo = [
@@ -86,8 +124,8 @@ const ContactSection = () => {
     {
       icon: Mail,
       title: "البريد الإلكتروني",
-      value: "info@whiteshark.eg",
-      link: "mailto:info@whiteshark.eg",
+      value: "white.shark.egy@gmail.com",
+      link: "mailto:white.shark.egy@gmail.com",
     },
     {
       icon: MapPin,
@@ -136,7 +174,7 @@ const ContactSection = () => {
                     htmlFor="name"
                     className="block text-sm font-medium text-foreground mb-2"
                   >
-                    الاسم الكامل *
+                    الاسم الكامل <span className="text-red-500">*</span>
                   </label>
                   <Input
                     id="name"
@@ -170,20 +208,26 @@ const ContactSection = () => {
                 <div>
                   <label
                     htmlFor="phone"
-                    className="block text-sm font-medium text-foreground mb-2"
+                    className="block text-sm font-medium text-foreground mb-2.5"
                   >
-                    رقم الهاتف *
+                    رقم الهاتف <span className="text-red-500">*</span>
                   </label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
+                  <PhoneInput
+                    onChange={handlePhoneChange}
                     value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="01xxxxxxxxx"
-                    required
-                    className="text-right"
-                    dir="ltr"
+                    country={"eg"}
+                    placeholder="(eg. +20) 123456789"
+                    containerStyle={{ direction: 'ltr' }}
+                    inputStyle={{
+                      width: 250 ,
+                      padding: 18,
+                      textAlign: 'right', 
+                      paddingRight: '20px',
+                      backgroundColor: 'rgba(246, 246, 246, 0.55)',
+                      direction: 'ltr', 
+                      border: "solid 1px rgba(199, 199, 199, 0.61)"
+                      
+                    }}
                   />
                 </div>
                 <div>
@@ -211,7 +255,7 @@ const ContactSection = () => {
                   htmlFor="message"
                   className="block text-sm font-medium text-foreground mb-2"
                 >
-                  رسالتك *
+                  رسالتك
                 </label>
                 <Textarea
                   id="message"
@@ -219,7 +263,6 @@ const ContactSection = () => {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="اكتب رسالتك هنا... (مثال: أريد عرض سعر لـ 1000 قطعة ليف)"
-                  required
                   rows={5}
                   className="text-right resize-none"
                 />
@@ -231,16 +274,28 @@ const ContactSection = () => {
                 className="w-full"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? (
-                  "جاري الإرسال..."
-                ) : (
+                {
                   <>
                     إرسال الرسالة
                     <Send className="h-5 w-5 mr-2" />
                   </>
-                )}
+                }
               </Button>
             </form>
+            <a href={pdf} download={"White-Shark-Catalogue.pdf"}>
+              <Button
+                size="lg"
+                className="w-full bg-green-600 hover:bg-green-500 mt-2 "
+                disabled={!isValid}
+              >
+                {
+                  <>
+                    تحميل الكتالوج
+                    <Download className="h-5 w-5 mr-1"></Download>
+                  </>
+                }
+              </Button>
+            </a>
           </div>
 
           {/* Contact Info */}
@@ -280,12 +335,10 @@ const ContactSection = () => {
               </div>
             </div>
 
-
-
             {/* Map Placeholder */}
             <div className="bg-card rounded-2xl overflow-hidden shadow-card h-64">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3412.6789!2d29.9!3d31.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDEyJzAwLjAiTiAyOcKwNTQnMDAuMCJF!5e0!3m2!1sen!2seg!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3410.8104192629976!2d30.00855547539471!3d31.25367107433715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5da8fae7d1dff%3A0xb550070eb55099b0!2sMostafa%20Kamel%2C%20As%20Soyouf%20Qebli%20(Include%20Izbat%20Derbanah)%2C%20Third%20Al%20Montazah%2C%20Alexandria%20Governorate%205515531!5e0!3m2!1sen!2seg!4v1769138550784!5m2!1sen!2seg"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

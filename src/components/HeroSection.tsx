@@ -1,22 +1,21 @@
 import { ArrowLeft, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.jpg";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 // For Vite / React import:
-import heroVideo from "@/assets/hero-video.mp4"; 
-import { useEffect } from "react";
-// If using Next.js, you can alternatively put hero-video.mp4 in public/ and use src="/hero-video.mp4"
-
-
+import heroVideo from "@/assets/hero-video.mp4";
+import { useEffect, useRef } from "react";
 
 const HeroSection = () => {
-
-  useEffect(()=>{
+  useEffect(() => {
     AOS.init({
-       duration: 1000,once: false,offset: 50 ,disable: window.innerWidth < 768 ? false : 'mobile'
+      duration: 1000,
+      once: false,
+      offset: 50,
+      disable: window.innerWidth < 768 ? false : "mobile",
     });
-  },[]);
+  }, []);
 
   const scrollToContact = () => {
     const element = document.querySelector("#contact");
@@ -26,7 +25,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section 
+    <section
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       dir="rtl"
@@ -34,23 +33,24 @@ const HeroSection = () => {
       {/* Video Background */}
       <div className="absolute inset-0 overflow-hidden">
         <video
-           src="/hero-video.mp4" 
+          src="/hero-video.mp4"
           autoPlay
           muted
           loop
           playsInline
-          poster={logo} // fallback image while video loads
+          webkit-playsinline="true"
+          preload="auto"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/20" />
       </div>
 
       {/* Content */}
-      <div className="container-custom relative z-10 pt-20">
-        <div className="max-w-4xl mx-auto text-center">
+      <div className="container-custom relative z-[10]  ">
+        <div className="max-w-4xl mx-auto mt-28 text-center">
           {/* Logo */}
           <div className="mb-8 animate-fade-in">
-            <img  
+            <img
               src={logo}
               alt="White Shark Logo"
               className="h-32 md:h-40 mx-auto object-contain drop-shadow-2xl"
@@ -60,12 +60,14 @@ const HeroSection = () => {
           {/* Main Heading */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 animate-slide-up">
             الشريك الموثوق في تصنيع
-            <span className="block mt-2 text-secondary">منتجات التنظيف بالجملة</span>
+            <span className="block mt-2 text-secondary">
+              منتجات التنظيف بالجملة
+            </span>
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-primary-foreground/90 mb-10 max-w-2xl mx-auto animate-slide-up animation-delay-100">
-            نحن متخصصون في تصنيع وتوريد حوامل سلكية وليف التنظيف عالية الجودة 
+          <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto animate-slide-up animation-delay-100">
+            نحن متخصصون في تصنيع وتوريد حوامل سلكية وليف التنظيف عالية الجودة
             للشركات وتجار الجملة. جودة صناعية بأسعار تنافسية.
           </p>
 
@@ -81,9 +83,13 @@ const HeroSection = () => {
               <ArrowLeft className="h-5 w-5 transition-transform group-hover:-translate-x-1" />
             </Button>
             <a href="tel:01114259777">
-              <Button variant="hero-outline" size="lg" className="w-full sm:w-auto">
+              <Button
+                variant="hero-outline"
+                size="lg"
+                className="w-full sm:w-auto"
+              >
                 <Phone className="h-5 w-5" />
-               01114259777
+                01114259777
               </Button>
             </a>
           </div>
