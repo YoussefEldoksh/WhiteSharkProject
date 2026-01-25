@@ -216,8 +216,11 @@ const ContactSection = () => {
                     onChange={handlePhoneChange}
                     value={formData.phone}
                     country={"eg"}
+                    excludeCountries={["il"]}
                     placeholder="(eg. +20) 123456789"
                     containerStyle={{ direction: 'ltr' }}
+                    enableSearch
+                    searchPlaceholder="ابحث"
                     inputStyle={{
                       width: 250 ,
                       padding: 18,
@@ -225,7 +228,7 @@ const ContactSection = () => {
                       paddingRight: '20px',
                       backgroundColor: 'rgba(246, 246, 246, 0.55)',
                       direction: 'ltr', 
-                      border: "solid 1px rgba(199, 199, 199, 0.61)"
+                      border: "solid 1px rgba(224, 233, 238, 0.61)"
                       
                     }}
                   />

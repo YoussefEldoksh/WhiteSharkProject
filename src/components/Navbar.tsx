@@ -37,7 +37,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 right-0 left-0 z-50   transition-all duration-300 ${
+      className={`fixed top-0 right-0 left-0 z-50  transition-all duration-300 ${
         isScrolled
           ? "bg-card/95 backdrop-blur-md shadow-card"
           : "bg-card/95 backdrop-blur-md shadow-card"
@@ -45,13 +45,13 @@ const Navbar = () => {
       dir="rtl"
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-20 py-3 sm:py-0">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center flex-shrink-0">
             <img
               src={logo}
               alt="White Shark - شركة القرش الأبيض لمنتجات التنظيف" 
-              className="h-14 w-auto object-contain  mix-blend-multiply"
+              className="h-12 sm:h-14 w-auto object-contain  mix-blend-multiply"
             />
           </div>
 

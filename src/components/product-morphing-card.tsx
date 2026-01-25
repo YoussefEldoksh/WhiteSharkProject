@@ -103,7 +103,7 @@ export function ProductMorphingCard({
           onClick={() => setIsExpanded(true)}
           className={cn(
             "bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-shadow duration-300 group cursor-pointer h-full flex flex-col will-change-transform",
-            isExpanded ? "opacity-0" : "opacity-100"
+            isExpanded ? "opacity-100" : "opacity-100"
           )}
         >
           <div className="relative h-56 overflow-hidden">
@@ -113,7 +113,7 @@ export function ProductMorphingCard({
               alt={alt}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 will-change-transform"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent" />
+            <div className="absolute inset-0  " />
           </div>
 
           <div className="p-6 flex flex-col flex-grow">

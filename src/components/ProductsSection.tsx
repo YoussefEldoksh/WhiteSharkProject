@@ -5,54 +5,65 @@ import React, { lazy } from 'react';
 
 import spaghetti from "@/assets/IMG_٢٠٢٥١٢٠٦_١٥٢٦٣٢.jpg";
 import spaghetti2 from "@/assets/IMG_٢٠٢٥١٢٠٦_١٥٢٧٠٩.jpg";
+import spaghetti3 from '@/assets/صور منتجات القرش خلفيه بيضاء/سباجيتي 3 ق.png'
+import spaghetti4 from '@/assets/صور منتجات القرش خلفيه بيضاء/سباجيتي 9 ق.png'
 
 
-import spongeScrubber from "@/assets/sponge-scrubber.jpg";
-import spongeScrubber2 from "@/assets/صور منتجات سكوتش القرش/سكوتش بريمو 02.jpg";
-import spongeScrubber3 from "@/assets/صور منتجات سكوتش القرش/سكوتش بريمو 03.jpg";
-import spongeScrubber9 from "@/assets/صور منتجات سكوتش القرش/سكوتش جامبو .jpg";
+import kharabish1 from '@/assets/صور منتجات القرش خلفيه بيضاء/خرابيش 2 ق.jpg'
+import kharabish2 from '@/assets/صور منتجات القرش خلفيه بيضاء/خرابيش 2 ق.png'
+import kharabish3 from '@/assets/صور منتجات القرش خلفيه بيضاء/خرابيش 3_2.jpg'
+import kharabish4 from '@/assets/صور منتجات القرش خلفيه بيضاء/خرابيش 6 ق.png'
+import kharabish5 from '@/assets/صور منتجات القرش خلفيه بيضاء/خرابيش برو.png'
+
+import zakya1 from '@/assets/صور منتجات القرش خلفيه بيضاء/ذكيه 1 ق.png'
+import zakya2 from '@/assets/صور منتجات القرش خلفيه بيضاء/ذكيه القرش 2 ق.png'
+import zakya3 from '@/assets/صور منتجات القرش خلفيه بيضاء/ذكيه 3 ق.png'
+import zakya4 from '@/assets/صور منتجات القرش خلفيه بيضاء/ذكيه 5 ق.png'
+import zakya5 from '@/assets/صور منتجات القرش خلفيه بيضاء/كرتونه ذكيه 1 ق (2) (1).png'
+import zakya6 from '@/assets/صور منتجات القرش خلفيه بيضاء/كرتونه ذكيه 1 ق (2) (2).png'
+
+import scotsh1 from '@/assets/صور منتجات القرش خلفيه بيضاء/سكوتش 9 ق.png';
+import scotsh2 from '@/assets/صور منتجات القرش خلفيه بيضاء/سكوتش 12 ق.png';
+import scotsh3 from '@/assets/صور منتجات القرش خلفيه بيضاء/سكوتش بريمو.png';
+import scotsh4 from '@/assets/صور منتجات القرش خلفيه بيضاء/سكوتش جامبو 12 ق.png'
+import scotsh5 from '@/assets/صور منتجات القرش خلفيه بيضاء/سكوتش جامبو.png'
+
+import silver from '@/assets/صور منتجات القرش خلفيه بيضاء/سيلفر 6 ق.png'
+import flamingo1 from '@/assets/صور منتجات القرش خلفيه بيضاء/فلامينجو .png'
+import flamingo2 from '@/assets/صور منتجات القرش خلفيه بيضاء/فلامينجو 9 ق.png'
+import morgana1 from '@/assets/صور منتجات القرش خلفيه بيضاء/مرجانه.png'
+import nemo1 from '@/assets/صور منتجات القرش خلفيه بيضاء/نيمو .jpg'
+import nemo2 from '@/assets/صور منتجات القرش خلفيه بيضاء/نيمو 2 ق.jpg'
+import nemo3 from '@/assets/صور منتجات القرش خلفيه بيضاء/نيمو 2 قطعه.png'
+import nemo4 from '@/assets/صور منتجات القرش خلفيه بيضاء/نيمو 3 ق .jpg'
+import nemo5 from '@/assets/صور منتجات القرش خلفيه بيضاء/نيمو 6 ق.png'
+import nemo6 from '@/assets/صور منتجات القرش خلفيه بيضاء/نيمو برو.png'
+
+
+import flexPad1 from '@/assets/صور منتجات القرش خلفيه بيضاء/فليكس 5 ق.png'
+import flexPad2 from '@/assets/صور منتجات القرش خلفيه بيضاء/فليكس باد 33.jpg'
+import flexPad3 from '@/assets/صور منتجات القرش خلفيه بيضاء/فليكس باد.jpg'
+
+
 import spongeScrubber4 from "@/assets/صور منتجات سكوتش القرش/فليكس باد 02.jpg";
 import spongeScrubber5 from "@/assets/صور منتجات سكوتش القرش/فليكس باد 33.jpg";
 import spongeScrubber6 from "@/assets/صور منتجات سكوتش القرش/فايبر 001.png";
 import spongeScrubber7 from "@/assets/صور منتجات سكوتش القرش/فليكس باد.jpg";
 
-import wireProduct1 from "@/assets/صور منتجات سلك القرش/1B6A2083.jpg";
-import wireProduct3 from "@/assets/صور منتجات سلك القرش/1B6A4306.jpg";
-import wireProduct2 from "@/assets/صور منتجات سلك القرش/MEITU_20251214_122503805.png";
-import wireProduct4 from "@/assets/صور منتجات سلك القرش/MEITU_20251214_130129808.png";
-import wireProduct5 from "@/assets/صور منتجات سلك القرش/سلك 3.jpg";
-import wireProduct6 from "@/assets/صور منتجات سلك القرش/سلك جامبو 01.png";
-import wireProduct7 from "@/assets/صور منتجات سلك القرش/قطعه كارت سلك القرش.jpg";
-import wireProduct9 from "@/assets/صور منتجات سلك القرش/كرت سلك اقرش.jpg";
-import wireProduct10 from "@/assets/صور منتجات سلك القرش/كرت سلك القرش.png";
-import wireProduct11 from "@/assets/صور منتجات سلك القرش/كرتونه سلك 3.jpg";
-import wireProduct12 from "@/assets/صور منتجات سلك القرش/كرتونه سلك جامبو.jpg";
+import wireProduct1 from "@/assets/صور منتجات القرش خلفيه بيضاء/سلك 3 ق.png";
+import wireProduct3 from "@/assets/صور منتجات القرش خلفيه بيضاء/سلك 8 ق.png";
+import wireProduct2 from "@/assets/صور منتجات القرش خلفيه بيضاء/سلك جامبو 01.png";
+import wireProduct4 from "@/assets/صور منتجات القرش خلفيه بيضاء/سلك جامبو.png";
+import wireProduct5 from "@/assets/صور منتجات القرش خلفيه بيضاء/كرتونه سلك 3 والباكيت.png";
+import wireProduct6 from "@/assets/صور منتجات القرش خلفيه بيضاء/كرتونه سلك جامبو والباكيت.png";
 
-import smartProduct1 from "@/assets/صور منتجات ذكيه القرش/ذكيه 1 ق 01.jpg";
-import smartProduct2 from "@/assets/صور منتجات ذكيه القرش/ذكيه 3-3.jpg";
-import smartProduct3 from "@/assets/صور منتجات ذكيه القرش/ذكيه القرش .jpg";
-import smartProduct4 from "@/assets/صور منتجات ذكيه القرش/كرتونه ذكيه 1 ق.jpg";
-import smartProduct5 from "@/assets/صور منتجات ذكيه القرش/كرتونه ذكيه القرش.jpg";
+import fiber from '@/assets/صور منتجات القرش خلفيه بيضاء/فايبر.png'
 
-import otherProducts1 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٧٣٠٣٢.jpg";
-import otherProducts2 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٧٣٤٠٦.jpg";
-import otherProducts3 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٧٣٨١٦.jpg";
-import otherProducts4 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٧٤٠٠٢.jpg";
-import otherProducts5 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٧٤٩٤٦.jpg";
-import otherProducts6 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٧٥٢٤٩.jpg";
-import otherProducts7 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٧٥٩٥١.jpg";
-import otherProducts8 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٨٠٢٣٤.jpg";
-import otherProducts9 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٨٢٧٣٦.jpg";
-import otherProducts10 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١٠٥_١٨٢٨٤٠.jpg";
-import otherProducts11 from "@/assets/صور منتجات تصدير/IMG_٢٠٢٥١١١٦_١٣١٨٤٦.jpg";
 
-import nemo from "@/assets/1000226047.jpg"
-import nemo2 from "@/assets/1000226044.jpg"
 
 import logo from "@/assets/logo.jpg"
 
 
-import cleaningProducts from "@/assets/cleaning-products.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
@@ -76,7 +87,7 @@ const ProductsSection = () => {
 
   const products = [
     {
-      image: [wireProduct1],
+      image: [wireProduct4],
       title: "سلك ستانلس",
       description:
         "تخلص من الأوساخ العنيدة والبقع المستعصية بكل سهولة! سلك التنظيف المصنوع من الفولاذ المقاوم للصدأ يعطيك نتائج احترافية في ثوانٍ معدودة",
@@ -85,27 +96,18 @@ const ProductsSection = () => {
       products: [
         {
           image: [
-            wireProduct11,
-            wireProduct2,
             wireProduct3,
+            wireProduct1,
+            wireProduct2,
             wireProduct4,
             wireProduct5,
             wireProduct6,
-            wireProduct7,
-            wireProduct12,
-            wireProduct9,
-            wireProduct10,
-            wireProduct1,
-            "../assets/stainless-steel-wire-rack.jpg",
-            "../assets/stainless-steel-wire-rack.jpg",
-            "../assets/stainless-steel-wire-rack.jpg",
-            "../assets/stainless-steel-wire-rack.jpg",
-            "../assets/stainless-steel-wire-rack.jpg",
-            "../assets/stainless-steel-wire-rack.jpg",
-            "../assets/stainless-steel-wire-rack.jpg",
-            "../assets/stainless-steel-wire-rack.jpg",
-            "../assets/stainless-steel-wire-rack.jpg",
-            "../assets/stainless-steel-wire-rack.jpg",
+            logo,
+            logo,
+            logo,
+            logo,
+            logo,
+
           ],
           title: "سلك ستانلس",
           description:
@@ -116,7 +118,7 @@ const ProductsSection = () => {
       ],
     },
     {
-      image: [spongeScrubber4],
+      image: [scotsh3],
       title: "منتجات سكوتش القرش",
       description:
         "ليف تنظيف إسفنجي بألوان متعددة، فعال في إزالة البقع والأوساخ مع الحفاظ على الأسطح.",
@@ -125,21 +127,17 @@ const ProductsSection = () => {
       products: [
         {
           image: [
-            spongeScrubber2,
-            otherProducts8,
-            spongeScrubber9,
-            spongeScrubber3,
-            otherProducts4,
-            otherProducts5,
-            otherProducts6,
-            "../assets/stainless-steel-wire-rack.jpg",
-            "../assets/stainless-steel-wire-rack.jpg",
-            "../assets/stainless-steel-wire-rack.jpg",
-            "../assets/stainless-steel-wire-rack.jpg",
-            "../assets/stainless-steel-wire-rack.jpg",
-            "../assets/stainless-steel-wire-rack.jpg",
+            scotsh4,
+            scotsh5,
+            scotsh1,
+            scotsh2,
+            scotsh3,
+            logo,
+            logo,
+            logo,
+            logo,
           ],
-          title: "ليف سكوتش القرش للتنظيف",
+          title: "ليف سكوتش القرش",
           description:
             "ليف تنظيف إسفنجي مصنعة من ( طبة فايبر قوية+ إسفينج معالج ضد البكتريا )، فعال في إزالة البقع والأوساخ مع الحفاظ على الأسطح",
           uses: ["جحم بريمو", "جحم وسط", "جحم جامبو"],
@@ -147,10 +145,10 @@ const ProductsSection = () => {
         },
         {
           image: [
-            otherProducts10,
-            spongeScrubber7,
-            spongeScrubber5,
+            flexPad1,
             spongeScrubber4,
+            spongeScrubber7,
+            flexPad2,
             "../assets/stainless-steel-wire-rack.jpg",
             "../assets/stainless-steel-wire-rack.jpg",
             "../assets/stainless-steel-wire-rack.jpg",
@@ -162,7 +160,7 @@ const ProductsSection = () => {
           alt: "ليف إسفنجي ملون للتنظيف - White Shark",
         },
         {
-          image: [spongeScrubber6],
+          image: [spongeScrubber6,fiber, logo],
           title: "ليف  فايبر",
           description:
             "ليف تنظيف إسفنجي مصنعة من ( طبة فايبر قوية+ إسفينج معالج ضد البكتريا )، فعال في إزالة البقع والأوساخ مع الحفاظ على الأسطح.",
@@ -172,7 +170,7 @@ const ProductsSection = () => {
       ],
     },
     {
-      image: [smartProduct1],
+      image: [zakya1],
       title: "منتجات ذكية",
           description: "تجمع بين قوة السلك الاستانلس في التنظيف السريع والفعال وبين الاسفنج عالي الكثافة,فهي الحل الأمثل لمن يبحث عن السرعة والكفاءة ",
       uses: ["سلك المواعين", "ليف الفايبر", "فوط التنظيف", "إسفنج متعدد"],
@@ -180,15 +178,17 @@ const ProductsSection = () => {
       products: [
         {
           image: [
-            smartProduct5,  
-            smartProduct2,
-            smartProduct3,
-            smartProduct4,
-            smartProduct1,
-            "../assets/stainless-steel-wire-rack.jpg",
-            "../assets/stainless-steel-wire-rack.jpg",
-            "../assets/stainless-steel-wire-rack.jpg",
-            "../assets/stainless-steel-wire-rack.jpg",
+            zakya6,
+            zakya5,
+            zakya4,
+            zakya3,
+            zakya2,
+            zakya1,  
+            logo,
+            logo,
+            logo,
+            logo,
+            logo,
           ],
           title: "الليفة الذكية",
           description: "تجمع بين قوة السلك الاستانلس في التنظيف السريع والفعال وبين الاسفنج عالي الكثافة,فهي الحل الأمثل لمن يبحث عن السرعة والكفاءة ",
@@ -198,26 +198,16 @@ const ProductsSection = () => {
       ],
     },
     {
-      image: [otherProducts3],
+      image: [morgana1],
       title: "منتجات اخري",
       description:
         "تشكيلة واسعة من منتجات التنظيف الصناعية والمنزلية بجودة عالية وأسعار الجملة.",
       uses: ["سلك المواعين", "ليف الفايبر", "فوط التنظيف", "إسفنج متعدد"],
       alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
       products: [
-        {
+                {
           image: [
-            otherProducts3,
-          ],
-          title: "سيلفر",
-          description:
-            "مصنعة من ( خيط بلاستكية + إسفينج معالج ضد البكتريا )",
-          uses: ["سيلفر 6 قطع ", "سيلفر 3 قطع"],
-          alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
-        },
-        {
-          image: [
-              logo
+              morgana1
           ],
           title: "مرجانة",
           description:
@@ -225,19 +215,55 @@ const ProductsSection = () => {
           uses: ["مرجانة 2 قطعة"],
           alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
         },
+        {
+          image: [
+            silver,
+          ],
+          title: "سيلفر",
+          description:
+            "مصنعة من ( خيط بلاستكية + إسفينج معالج ضد البكتريا )",
+          uses: ["سيلفر 6 قطع ", "سيلفر 3 قطع"],
+          alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
+        },
+
       ],
     },
     {
-      image: [otherProducts7],
+      image: [spaghetti3],
       title: "ليف شعر",
       description:
         "تشكيلة واسعة من منتجات التنظيف الصناعية والمنزلية بجودة عالية وأسعار الجملة.",
       uses: ["سلك المواعين", "ليف الفايبر", "فوط التنظيف", "إسفنج متعدد"],
       alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
       products: [
+                {
+          image: [
+            spaghetti4,
+            spaghetti,
+            spaghetti2,
+            spaghetti3,
+            logo,
+            logo,
+            logo,
+
+          ],
+          title: "سباجيتي",
+          description:
+            "تتميز بتصميم فريد وجديد خشونتها المناسبة لتنظيف الصلصة الملتصقة بالأطباق والأواني بكفاءة وفاعلية سريعة  ",
+          uses: ["3x سباجيتي"],
+          alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
+        },
         {
           image: [
-            otherProducts7,
+            kharabish2,
+            kharabish3,
+            kharabish4,
+            kharabish1,
+            kharabish5,
+            logo,
+            logo,
+            logo,
+            logo,
           ],
           title: "خرابيش",
           description:
@@ -246,7 +272,17 @@ const ProductsSection = () => {
           alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
         },
         {
-          image: [nemo, nemo2,"../assets/stainless-steel-wire-rack.jpg", ],
+          image: [
+            nemo5,
+            nemo4,
+            nemo1,
+            nemo2,
+            nemo3,
+            logo,
+            logo,
+            logo,
+            logo,
+           ],
           title: "نيمو",
           description:
             "تعتبر ليفة نيمو من تكثر المنتدات جاذبية خاصة بين السيدات بفضل ألوانها الفسفورية الجذابة ,البمبي ,البرتقالي و الأخضر الفسفوري ",
@@ -254,21 +290,17 @@ const ProductsSection = () => {
           alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
         },
         {
-          image: [otherProducts1],
+          image: [
+            flamingo2,
+            flamingo1,
+            logo],
           title: "فلامينجو",
           description:
             "تأتي بثلاثة ألوان متناسقة الأحمر والأصفر والأزرق  كل لون لأستخدام في مطبخك  بالأضافة لخشونتها المناسبة ",
           uses: ["3x فلامينجو"],
           alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
         },
-        {
-          image: [spaghetti2],
-          title: "سباجيتي",
-          description:
-            "تتميز بتصميم فريد وجديد خشونتها المناسبة لتنظيف الصلصة الملتصقة بالأطباق والأواني بكفاءة وفاعلية سريعة  ",
-          uses: ["3x سباجيتي"],
-          alt: "منتجات تنظيف متنوعة بالجملة - White Shark",
-        },
+
       ],
     },
   ];
