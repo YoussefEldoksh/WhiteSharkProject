@@ -255,15 +255,8 @@ const ProductsSection = () => {
         },
         {
           image: [
-            kharabish2,
-            kharabish3,
-            kharabish4,
+
             kharabish1,
-            kharabish5,
-            logo,
-            logo,
-            logo,
-            logo,
           ],
           title: "خرابيش",
           description:
@@ -273,15 +266,9 @@ const ProductsSection = () => {
         },
         {
           image: [
-            nemo5,
-            nemo4,
-            nemo1,
+
             nemo2,
-            nemo3,
-            logo,
-            logo,
-            logo,
-            logo,
+
            ],
           title: "نيمو",
           description:

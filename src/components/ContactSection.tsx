@@ -285,11 +285,23 @@ const ContactSection = () => {
                 }
               </Button>
             </form>
-            <a href={pdf} download={"White-Shark-Catalogue.pdf"}>
               <Button
                 size="lg"
                 className="w-full bg-green-600 hover:bg-green-500 mt-2 "
                 disabled={!isValid}
+                onClick={(e)=>{
+                  if (!isValid) {
+                    e.preventDefault();
+                    return;
+                  }
+
+                  const link = document.createElement('a');
+                  link.href = pdf;
+                  link.download = 'White-Shark-Catalogue.pdf';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
               >
                 {
                   <>
@@ -298,7 +310,6 @@ const ContactSection = () => {
                   </>
                 }
               </Button>
-            </a>
           </div>
 
           {/* Contact Info */}
