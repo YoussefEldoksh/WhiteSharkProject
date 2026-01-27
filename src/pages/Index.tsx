@@ -8,7 +8,7 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import FaceBookFloat from "@/components/FaceBookFloat.tsx";
 import InstagramFloat from "@/components/InstagramFloat.tsx";
-// import WhatsAppFloat from "@/components/WhatsAppFloat.tsx";
+import WhatsAppFloat from "@/components/WhatsAppFloat.tsx";
 import logo from "@/assets/logo.jpg"
 
 const Index = () => {
@@ -84,7 +84,7 @@ const Index = () => {
                 <div className="fixed bottom-5 right-5 md:bottom-8 md:right-8 z-[9999] flex gap-4">
           <FaceBookFloat></FaceBookFloat>
           <InstagramFloat></InstagramFloat>
-          {/* <WhatsAppFloat></WhatsAppFloat> */}
+          <WhatsAppFloat></WhatsAppFloat>
         </div>
         <Footer />
       </main>
