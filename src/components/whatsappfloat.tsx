@@ -1,7 +1,6 @@
-import { FC } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 
-const WhatsAppFloat: FC = () => {
+const WhatsAppFloat = () => {
   const phone = "201114259777";
   const message = encodeURIComponent("السلام عليكم ممكن التفاصيل ");
 
