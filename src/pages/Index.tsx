@@ -6,8 +6,8 @@ import ProductsSection from "@/components/ProductsSection";
 import WhyUsSection from "@/components/WhyUsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import FaceBookFloat from "@/components/FaceBookFloat";
-import InstagramFloat from "@/components/InstagramFloat";
+import FaceBookFloat from "@/components/FaceBookFloat.tsx";
+import InstagramFloat from "@/components/InstagramFloat.tsx";
 import WhatsAppFloat from "@/components/WhatsAppFloat.tsx";
 import logo from "@/assets/logo.jpg"
 
