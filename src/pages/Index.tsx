@@ -8,7 +8,7 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import FaceBookFloat from "@/components/FaceBookFloat";
 import InstagramFloat from "@/components/InstagramFloat";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
+import WhatsAppFloat from "@/components/WhatsAppFloat.tsx";
 import logo from "@/assets/logo.jpg"
 
 const Index = () => {
