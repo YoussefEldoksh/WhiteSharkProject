@@ -8,14 +8,7 @@ import heroVideo from "@/assets/hero-video.mp4";
 import { useEffect, useRef } from "react";
 
 const HeroSection = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: false,
-      offset: 50,
-      disable: window.innerWidth < 768 ? false : "mobile",
-    });
-  }, []);
+
 
   const scrollToContact = () => {
     const element = document.querySelector("#contact");
@@ -27,7 +20,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-full flex items-center justify-center overflow-hidden"
       dir="rtl"
     >
       {/* Video Background */}
@@ -42,12 +35,12 @@ const HeroSection = () => {
           preload="auto"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/80 to-black/80" />
       </div>
 
       {/* Content */}
       <div className="container-custom relative z-[10]  ">
-        <div className="max-w-4xl mx-auto mt-28 text-center">
+        <div className="max-w-4xl mx-auto mt-6 text-center">
           {/* Logo */}
           <div className="mb-8 animate-fade-in">
             <img
@@ -58,17 +51,16 @@ const HeroSection = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 animate-slide-up">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-3 animate-slide-up">
             الشريك الموثوق في تصنيع
-            <span className="block mt-2 text-secondary">
+            <span className="block mt-5 text-secondary">
               منتجات التنظيف بالجملة
             </span>
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto animate-slide-up animation-delay-100">
-            نحن متخصصون في تصنيع وتوريد حوامل سلكية وليف التنظيف عالية الجودة
-            للشركات وتجار الجملة. جودة صناعية بأسعار تنافسية.
+          <p className="text-lg md:text-xl text-primary-foreground/90 mb-4 max-w-2xl mx-auto animate-slide-up animation-delay-100">
+           نحن متخصصون في تصنيع وتوريد ليف المواعين والسلك الاستانلس بجودة تصنيع عاليه واسعار تنافسيه
           </p>
 
           {/* CTA Buttons */}
@@ -87,24 +79,25 @@ const HeroSection = () => {
                 variant="hero-outline"
                 size="lg"
                 className="w-full sm:w-auto"
+                dir="ltr"
               >
-                <Phone className="h-5 w-5" />
-                01114259777
+                <Phone className="h-5 w-5"/>
+                +20 1114259777
               </Button>
             </a>
           </div>
 
           {/* Trust Indicators */}
-          <div className="mt-4 mb-8 grid grid-cols-2 md:grid-cols-4 gap-6 animate-slide-up animation-delay-300">
+          <div className="mt-4 mb-8 grid grid-cols-2 md:grid-cols-4 gap-6 animate-slide-up animation-delay-300 cursor-default ">
             {[
-              { number: "+15", label: "سنة خبرة" },
-              { number: "+500", label: "عميل راضٍ" },
+              { number: "+10", label: "سنة خبرة" },
+              { number: "+3000", label: "عميل راضٍ" },
               { number: "+50", label: "منتج متنوع" },
               { number: "24/7", label: "دعم فني" },
             ].map((stat, index) => (
               <div
                 key={index}
-                className="bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-4 border border-primary-foreground/20"
+                className="bg-primary-foreground/40 backdrop-blur-sm rounded-lg p-4 border border-primary-foreground/20 "
               >
                 <div className="text-3xl md:text-4xl font-bold text-secondary">
                   {stat.number}

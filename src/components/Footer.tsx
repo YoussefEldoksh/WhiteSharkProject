@@ -1,5 +1,6 @@
 import { Phone, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/logo.jpg";
+import madeInEgy from "/Made-in-egypt-final-logo-01.webp"
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -27,17 +28,25 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-foreground text-background" dir="rtl">
+    <footer className="bg-foreground text-background " dir="rtl">
       {/* Main Footer */}
       <div className="container-custom py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Company Info */}
           <div className="lg:col-span-1">
+            <div className="flex items-center">
+
+            <img
+              src={madeInEgy}
+              alt="White Shark"
+              className="h-40 mb-3 object-contain"
+            />
             <img
               src={logo}
               alt="White Shark"
-              className="h-20 mb-6 object-contain"
+              className="h-20 mb-3 object-contain"
             />
+            </div>
             <p className="text-background/70 text-sm leading-relaxed mb-6">
               الشريك الموثوق في تصنيع وتوريد منتجات التنظيف عالية الجودة 
               لتجار الجملة والموزعين في مصر والوطن العربي.

@@ -12,8 +12,7 @@ import {
   MessageCircle,
   Download,
 } from "lucide-react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 import { useForm } from "react-hook-form";
 // import { PhoneInput } from "./Phone-input";
 
@@ -29,14 +28,7 @@ const ContactSection = () => {
     formState: { errors },
   } = useForm();
 
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      offset: 50,
-      disable: window.innerWidth < 768 ? false : "mobile",
-    });
-  }, []);
+
   const { toast } = useToast();
 
   const [formData, setFormData] = useState({
@@ -52,6 +44,8 @@ const ContactSection = () => {
   const [isValid, setIsValid] = useState(false);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const [inValidDataAfterClick, setinValidDataAfterClick] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -69,10 +63,17 @@ const ContactSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // https://formspree.io/f/xwvvewzq
+
+    if (formData.phone.length < 6 || formData.name.length < 3) {
+      setinValidDataAfterClick(true);
+      setIsSubmitting(false);
+      return;
+    }
+
+    // https://formspree.io/f/meeokqob
     // Simulate form submission
     try {
-      const response = await fetch("https://formspree.io/f/meeokqob", {
+      const response = await fetch("https://formspree.io/f/xwvvewzq", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -103,6 +104,7 @@ const ContactSection = () => {
 
       setIsSubmitting(false);
       setIsValid(true);
+      setinValidDataAfterClick(false);
     } catch (error) {
       console.error("Error submitting form:", error);
     }
@@ -112,13 +114,13 @@ const ContactSection = () => {
     {
       icon: Phone,
       title: "الهاتف",
-      value: "01114259777",
+      value: "+20 1114259777",
       link: "tel:01114259777",
     },
     {
       icon: MessageCircle,
       title: "واتساب",
-      value: "01114259777",
+      value: "+20 1114259777",
       link: "https://wa.me/201114259777",
     },
     {
@@ -142,10 +144,10 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="section-padding bg-muted" dir="rtl">
+    <section id="contact" className="section-padding bg-muted animate-slide-up" dir="rtl">
       <div className="container-custom">
         {/* Section Header */}
-        <div data-aos="fade-down" className="text-center mb-16">
+        <div className="text-center mb-16 ">
           <span className="text-secondary font-semibold text-sm tracking-wider uppercase">
             تواصل معنا
           </span>
@@ -159,13 +161,13 @@ const ContactSection = () => {
         </div>
 
         <div
-          data-aos="zoom-in"
-          className="grid lg:grid-cols-2 row-span-2  gap-12"
+          
+          className="grid lg:grid-cols-2 row-span-2  gap-12 "
         >
           {/* Contact Form */}
           <div className="grid grid-row-2 h-fit bg-card p-8 rounded-2xl shadow-card">
             <h3 className="text-2xl font-bold text-foreground mb-6">
-              أرسل لنا رسالة
+              للاستفسار عن التفاصيل
             </h3>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid sm:grid-cols-2 gap-5">
@@ -182,7 +184,6 @@ const ContactSection = () => {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="أدخل اسمك"
-                    required
                     className="text-right"
                   />
                 </div>
@@ -191,7 +192,7 @@ const ContactSection = () => {
                     htmlFor="company"
                     className="block text-sm font-medium text-foreground mb-2"
                   >
-                    اسم الشركة
+                    اسم الشركة/المتجر
                   </label>
                   <Input
                     id="company"
@@ -218,18 +219,18 @@ const ContactSection = () => {
                     country={"eg"}
                     excludeCountries={["il"]}
                     placeholder="(eg. +20) 123456789"
-                    containerStyle={{ direction: 'ltr' }}
+                    containerStyle={{ direction: "ltr", margin: 0 }}
                     enableSearch
+                    inputProps={{ required: true }}
                     searchPlaceholder="ابحث"
                     inputStyle={{
-                      width: 250 ,
-                      padding: 18,
-                      textAlign: 'right', 
-                      paddingRight: '20px',
-                      backgroundColor: 'rgba(246, 246, 246, 0.55)',
-                      direction: 'ltr', 
-                      border: "solid 1px rgba(224, 233, 238, 0.61)"
-                      
+                      width: 250,
+                      padding: 19,
+                      textAlign: "right",
+                      paddingRight: "20px",
+                      backgroundColor: "rgba(246, 246, 246, 0.55)",
+                      direction: "ltr",
+                      border: "solid 1px rgba(224, 233, 238, 0.61)",
                     }}
                   />
                 </div>
@@ -270,6 +271,12 @@ const ContactSection = () => {
                   className="text-right resize-none"
                 />
               </div>
+              {inValidDataAfterClick && (
+                <p className="text-red-500">
+                  {" "}
+                  برجاء استكمال المعلومات المطلوبة
+                </p>
+              )}
 
               <Button
                 type="submit"
@@ -285,31 +292,31 @@ const ContactSection = () => {
                 }
               </Button>
             </form>
-              <Button
-                size="lg"
-                className="w-full bg-green-600 hover:bg-green-500 mt-2 "
-                disabled={!isValid}
-                onClick={(e)=>{
-                  if (!isValid) {
-                    e.preventDefault();
-                    return;
-                  }
-
-                  const link = document.createElement('a');
-                  link.href = pdf;
-                  link.download = 'White-Shark-Catalogue.pdf';
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
-                }}
-              >
-                {
-                  <>
-                    تحميل الكتالوج
-                    <Download className="h-5 w-5 mr-1"></Download>
-                  </>
+            <Button
+              size="lg"
+              className="w-full bg-green-600 hover:bg-green-500 mt-2 "
+              disabled={!isValid}
+              onClick={(e) => {
+                if (!isValid) {
+                  e.preventDefault();
+                  return;
                 }
-              </Button>
+
+                const link = document.createElement("a");
+                link.href = pdf;
+                link.download = "White-Shark-Catalogue.pdf";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+            >
+              {
+                <>
+                  تحميل الكتالوج
+                  <Download className="h-5 w-5 mr-1"></Download>
+                </>
+              }
+            </Button>
           </div>
 
           {/* Contact Info */}
@@ -335,7 +342,7 @@ const ContactSection = () => {
                           rel="noopener noreferrer"
                           className="text-muted-foreground hover:text-primary transition-colors"
                           dir={
-                            info.title === "البريد الإلكتروني" ? "ltr" : "rtl"
+                            info.title === "البريد الإلكتروني" ? "ltr" : "ltr"
                           }
                         >
                           {info.value}
@@ -348,11 +355,10 @@ const ContactSection = () => {
                 ))}
               </div>
             </div>
-
             {/* Map Placeholder */}
             <div className="bg-card rounded-2xl overflow-hidden shadow-card h-64">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3410.8104192629976!2d30.00855547539471!3d31.25367107433715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5da8fae7d1dff%3A0xb550070eb55099b0!2sMostafa%20Kamel%2C%20As%20Soyouf%20Qebli%20(Include%20Izbat%20Derbanah)%2C%20Third%20Al%20Montazah%2C%20Alexandria%20Governorate%205515531!5e0!3m2!1sen!2seg!4v1769138550784!5m2!1sen!2seg"
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d192.91593680063113!2d30.02143783499982!3d31.252166035262128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDE1JzA3LjgiTiAzMMKwMDEnMTcuNyJF!5e1!3m2!1sen!2ssa!4v1770070014472!5m2!1sen!2ssa"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

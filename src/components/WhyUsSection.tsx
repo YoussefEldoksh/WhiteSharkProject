@@ -2,9 +2,11 @@ import {
   Shield,
   Truck,
   BadgeDollarSign,
-  Headphones,
+  PhoneIncoming ,
   Package,
   Handshake,
+  Container  ,
+  Factory
 } from "lucide-react";
 
 
@@ -39,22 +41,22 @@ const WhyUsSection = () => {
         "أسعار جملة مميزة تناسب تجار الجملة والموزعين وتضمن هامش ربح جيد",
     },
     {
-      icon: Package,
-      title: "تخصيص الطلبات",
+      icon: Container  ,
+      title: "جاهزون للتصدير",
       description:
-        "إمكانية تصنيع منتجات حسب المواصفات المطلوبة وبعلامتك التجارية الخاصة",
+      "جميع الاوراق والتراخيص اللازمة للتصدير بداية من التعاقد وحتى وصول الحاوية لمستودعك",
     },
     {
-      icon: Headphones,
+      icon: Factory,
+      title: "مصنع مرخص",
+      description:
+        "مصنع القرش الابيض مرخص من هيئة التنمية الصناعية وخاضع للرقابة الدورية على التصنيع والمنتجات",
+    },
+    {
+      icon: PhoneIncoming ,
       title: "دعم فني متواصل",
       description:
         "فريق دعم متاح للإجابة على استفساراتك ومساعدتك في اختيار المنتجات المناسبة",
-    },
-    {
-      icon: Handshake,
-      title: "شراكة طويلة المدى",
-      description:
-        "نبني علاقات تجارية مستدامة مع عملائنا قائمة على الثقة والالتزام",
     },
   ];
 
@@ -107,10 +109,10 @@ const WhyUsSection = () => {
         <div data-aos="flip-up" className="mt-16 bg-primary rounded-2xl p-8 md:p-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: "100%", label: "رضا العملاء" },
+              { value: "100+", label: "حاوية تم تصديرها" },
               { value: "+10,000", label: "طلب شهري" },
-              { value: "+20", label: "محافظة نخدمها" },
-              { value: "48h", label: "سرعة التوريد" },
+              { value: "+20", label: "شحن مجاني لاكثر من 20 محافظة" },
+              { value: "48h", label: "شحن خلال 48 ساعه" },
             ].map((stat, index) => (
               <div key={index}>
                 <div className="text-3xl md:text-4xl font-bold text-primary-foreground mb-2">

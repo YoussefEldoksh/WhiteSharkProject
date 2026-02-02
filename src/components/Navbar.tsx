@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.jpg";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 
 const Navbar = () => {
 
@@ -11,13 +10,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  
 
   const navLinks = [
     { href: "#hero", label: "الرئيسية" },
@@ -37,7 +30,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 right-0 left-0 z-50  transition-all duration-300 ${
+      className={`static top-0 right-0 left-0 z-50  transition-all duration-300 ${
         isScrolled
           ? "bg-card/95 backdrop-blur-md shadow-card"
           : "bg-card/95 backdrop-blur-md shadow-card"

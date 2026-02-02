@@ -5,11 +5,12 @@ import path from "path";
 // Vite config
 export default defineConfig(({ mode }) => {
   // Start with react plugin
-  const plugins = [react()];
-
-  
+  const plugins = [
+    react()
+  ];
 
   return {
+    base: '/',
     server: {
       host: true,           // allow network access / ngrok
       port: 8080,

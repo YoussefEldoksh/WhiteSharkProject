@@ -102,33 +102,33 @@ export function ProductMorphingCard({
           layoutId={`card-${uniqueId}`}
           onClick={() => setIsExpanded(true)}
           className={cn(
-            "bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-shadow duration-300 group cursor-pointer h-full flex flex-col will-change-transform",
+            "bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-shadow duration-300 group cursor-pointer h-[540px] flex flex-col will-change-transform",
             isExpanded ? "opacity-100" : "opacity-100"
           )}
         >
-          <div className="relative h-56 overflow-hidden">
+          <div className="relative h-3/4 overflow-hidden">
             <motion.img
               layoutId={`image-${uniqueId}`}
               src={image[0]}
               alt={alt}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 will-change-transform"
+              className=" w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 will-change-transform "
             />
-            <div className="absolute inset-0  " />
+            <div className="absolute inset-0" />
           </div>
 
-          <div className="p-6 flex flex-col flex-grow">
+          <div className="px-6 py-8 flex flex-col ">
             <motion.h3
               layoutId={`title-${uniqueId}`}
               className="text-xl font-bold text-foreground mb-3"
             >
               {title}
             </motion.h3>
-            <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-2">
+            <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-3">
               {description}
             </p>
 
             <div className="mt-auto">
-              <div className="relative h-10 w-full">
+              <div className="relative h-12 w-full">
                 <motion.div
                   layoutId={`cta-container-${uniqueId}`}
                   className="absolute inset-0 bg-primary/10 border border-primary/20 text-primary rounded-md flex items-center justify-center gap-2 group/btn font-medium px-4"
@@ -137,7 +137,7 @@ export function ProductMorphingCard({
                     layoutId={`cta-text-${uniqueId}`}
                     className="text-sm"
                   >
-                    اطلب عرض سعر
+                     عرض المنتجات
                   </motion.span>
                   <motion.div layoutId={`cta-icon-${uniqueId}`}>
                     <ArrowLeft className="h-4 w-4 transition-transform group-hover/btn:-translate-x-1" />

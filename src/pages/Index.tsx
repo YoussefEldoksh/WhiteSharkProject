@@ -20,7 +20,7 @@ const Index = () => {
     "alternateName": "القرش الأبيض",
     "url": "https://whiteshark.eg",
     "logo": "https://whiteshark.eg/logo.jpg",
-    "description": "شركة White Shark متخصصة في تصنيع وتوريد منتجات التنظيف بالجملة - حوامل سلكية، ليف تنظيف، منتجات B2B",
+    "description": "شركة White Shark متخصصة في تصنيع وتوريد منتجات التنظيف بالجملة - ليف تنظيف، منتجات B2B",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "الطريق الدولي 45",
@@ -44,14 +44,14 @@ const Index = () => {
       <Helmet>
         <html lang="ar" dir="rtl" />
         <link rel="icon" href={logo} />
-        <title>White Shark | تصنيع منتجات التنظيف بالجملة - حوامل سلكية وليف تنظيف</title>
+        <title>White Shark | تصنيع منتجات التنظيف بالجملة - اسلاك وليف تنظيف</title>
         <meta 
           name="description" 
-          content="White Shark - الشركة الرائدة في تصنيع وتوريد منتجات التنظيف بالجملة في مصر. حوامل سلكية، ليف إسفنجي، منتجات B2B للمطابخ والشركات. جودة عالية وأسعار تنافسية." 
+          content="White Shark - الشركة الرائدة في تصنيع وتوريد منتجات التنظيف بالجملة في مصر. ليف إسفنجي،اسلاك تنظيف ،منتجات B2B للمطابخ والشركات. جودة عالية وأسعار تنافسية." 
         />
         <meta 
           name="keywords" 
-          content="تصنيع حوامل سلكية، ليف تنظيف بالجملة، منتجات تنظيف B2B، مصنع لوازم المطبخ بالجملة، القرش الأبيض، White Shark، منتجات تنظيف مصر" 
+          content="تصنيع ، ليف تنظيف بالجملة، منتجات تنظيف B2B، مصنع لوازم المطبخ بالجملة، القرش الأبيض، White Shark، منتجات تنظيف مصر" 
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://whiteshark.eg" />
@@ -59,7 +59,7 @@ const Index = () => {
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:title" content="White Shark | تصنيع منتجات التنظيف بالجملة" />
-        <meta property="og:description" content="الشركة الرائدة في تصنيع وتوريد منتجات التنظيف بالجملة في مصر. حوامل سلكية، ليف إسفنجي، منتجات B2B." />
+        <meta property="og:description" content="الشركة الرائدة في تصنيع وتوريد منتجات التنظيف بالجملة في مصر. حوامل  ليف إسفنجي، منتجات B2B." />
         <meta property="og:url" content="https://whiteshark.eg" />
         <meta property="og:locale" content="ar_EG" />
         
@@ -81,8 +81,8 @@ const Index = () => {
         <ProductsSection />
         <WhyUsSection />
         <ContactSection />
-                <div className="fixed bottom-5 right-5 md:bottom-8 md:right-8 z-[9999] flex gap-4">
-          <FaceBookFloat></FaceBookFloat>
+        <div className="fixed bottom-0 right-5 md:bottom-3 md:right-8 z-[200] flex gap-4 animate-bounce ">
+          <FaceBookFloat ></FaceBookFloat>
           <InstagramFloat></InstagramFloat>
           <WhatsAppFloat></WhatsAppFloat>
         </div>

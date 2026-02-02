@@ -40,9 +40,9 @@ import nemo5 from '@/assets/صور منتجات القرش خلفيه بيضاء
 import nemo6 from '@/assets/صور منتجات القرش خلفيه بيضاء/نيمو برو.png'
 
 
-import flexPad1 from '@/assets/صور منتجات القرش خلفيه بيضاء/فليكس 5 ق.png'
-import flexPad2 from '@/assets/صور منتجات القرش خلفيه بيضاء/فليكس باد 33.jpg'
-import flexPad3 from '@/assets/صور منتجات القرش خلفيه بيضاء/فليكس باد.jpg'
+// import flexPad1 from '/فليكس 5 ق.png'
+// import flexPad2 from '/assets/صور منتجات القرش خلفيه بيضاء/فليكس باد 33.jpg'
+// import flexPad3 from '/assets/صور منتجات القرش خلفيه بيضاء/فليكس باد.jpg'
 
 
 import spongeScrubber4 from "@/assets/صور منتجات سكوتش القرش/فليكس باد 02.jpg";
@@ -87,7 +87,7 @@ const ProductsSection = () => {
 
   const products = [
     {
-      image: [wireProduct4],
+      image: [wireProduct6],
       title: "سلك ستانلس",
       description:
         "تخلص من الأوساخ العنيدة والبقع المستعصية بكل سهولة! سلك التنظيف المصنوع من الفولاذ المقاوم للصدأ يعطيك نتائج احترافية في ثوانٍ معدودة",
@@ -121,7 +121,7 @@ const ProductsSection = () => {
       image: [scotsh3],
       title: "منتجات سكوتش القرش",
       description:
-        "ليف تنظيف إسفنجي بألوان متعددة، فعال في إزالة البقع والأوساخ مع الحفاظ على الأسطح.",
+        "ليف تنظيف إسفنجي مصنعة من ( طبة فايبر قوية+ إسفينج معالج ضد البكتريا )، فعال في إزالة البقع والأوساخ مع الحفاظ على الأسطح",
       uses: ["تنظيف الأواني", "الأسطح", "البلاط", "الأجهزة"],
       alt: "ليف إسفنجي ملون للتنظيف - White Shark",
       products: [
@@ -145,13 +145,14 @@ const ProductsSection = () => {
         },
         {
           image: [
-            flexPad1,
-            spongeScrubber4,
-            spongeScrubber7,
-            flexPad2,
-            "../assets/stainless-steel-wire-rack.jpg",
-            "../assets/stainless-steel-wire-rack.jpg",
-            "../assets/stainless-steel-wire-rack.jpg",
+            "/فليكس 5 ق.png",
+            "/فليكس باد.jpg",
+            // spongeScrubber4,
+            // spongeScrubber7,
+            "/فليكس باد 33.jpg",
+            logo,
+            logo,
+
           ],
           title: "فليكس باد",
           description:
@@ -170,7 +171,7 @@ const ProductsSection = () => {
       ],
     },
     {
-      image: [zakya1],
+      image: [zakya3],
       title: "منتجات ذكية",
           description: "تجمع بين قوة السلك الاستانلس في التنظيف السريع والفعال وبين الاسفنج عالي الكثافة,فهي الحل الأمثل لمن يبحث عن السرعة والكفاءة ",
       uses: ["سلك المواعين", "ليف الفايبر", "فوط التنظيف", "إسفنج متعدد"],
@@ -181,9 +182,9 @@ const ProductsSection = () => {
             zakya6,
             zakya5,
             zakya4,
-            zakya3,
             zakya2,
             zakya1,  
+            zakya3,
             logo,
             logo,
             logo,
@@ -229,7 +230,7 @@ const ProductsSection = () => {
       ],
     },
     {
-      image: [spaghetti3],
+      image: [kharabish1],
       title: "ليف شعر",
       description:
         "تشكيلة واسعة من منتجات التنظيف الصناعية والمنزلية بجودة عالية وأسعار الجملة.",
@@ -336,8 +337,7 @@ const ProductsSection = () => {
         {/* Bottom CTA */}
         <div className="text-center mt-12">
           <p className="text-muted-foreground mb-4">
-            لديك استفسار عن منتج معين؟ تواصل معنا للحصول على كتالوج كامل وأسعار
-            الجملة
+            عروض الجملة تبدأ من هنا — تواصل معنا اليوم واستلم الكتالوج الكامل الذي يضم مجموعة واسعة من منتجاتنا، مع أفضل أسعار الجملة التنافسية.
           </p>
           <Button variant="default" size="lg" onClick={scrollToContact}>
             تواصل للحصول على الكتالوج
