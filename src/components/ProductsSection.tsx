@@ -10,9 +10,9 @@ import spaghetti4 from '@/assets/صور منتجات القرش خلفيه بي�
 
 
 import kharabish1 from '@/assets/صور منتجات القرش خلفيه بيضاء/خرابيش 2 ق.jpg'
-import kharabish2 from '@/assets/صور منتجات القرش خلفيه بيضاء/خرابيش 2 ق.png'
-import kharabish3 from '@/assets/صور منتجات القرش خلفيه بيضاء/خرابيش 3_2.jpg'
-import kharabish4 from '@/assets/صور منتجات القرش خلفيه بيضاء/خرابيش 6 ق.png'
+import kharabish2 from '@/assets/صور منتجات القرش خلفيه بيضاء/kharabishNew1.jpeg'
+import kharabish3 from '@/assets/صور منتجات القرش خلفيه بيضاء/kharabishNew2.jpeg'
+import kharabish4 from '@/assets/صور منتجات القرش خلفيه بيضاء/kharabishNew3.jpeg'
 import kharabish5 from '@/assets/صور منتجات القرش خلفيه بيضاء/خرابيش برو.png'
 
 import zakya1 from '@/assets/صور منتجات القرش خلفيه بيضاء/ذكيه 1 ق.png'
@@ -32,10 +32,10 @@ import silver from '@/assets/صور منتجات القرش خلفيه بيضا�
 import flamingo1 from '@/assets/صور منتجات القرش خلفيه بيضاء/فلامينجو .png'
 import flamingo2 from '@/assets/صور منتجات القرش خلفيه بيضاء/فلامينجو 9 ق.png'
 import morgana1 from '@/assets/صور منتجات القرش خلفيه بيضاء/مرجانه.png'
-import nemo1 from '@/assets/صور منتجات القرش خلفيه بيضاء/نيمو .jpg'
+import nemo1 from '@/assets/صور منتجات القرش خلفيه بيضاء/nemoNew1.jpeg'
 import nemo2 from '@/assets/صور منتجات القرش خلفيه بيضاء/نيمو 2 ق.jpg'
-import nemo3 from '@/assets/صور منتجات القرش خلفيه بيضاء/نيمو 2 قطعه.png'
-import nemo4 from '@/assets/صور منتجات القرش خلفيه بيضاء/نيمو 3 ق .jpg'
+import nemo3 from '@/assets/صور منتجات القرش خلفيه بيضاء/nemoNew2.jpeg'
+import nemo4 from '@/assets/صور منتجات القرش خلفيه بيضاء/nemoNew3.jpeg'
 import nemo5 from '@/assets/صور منتجات القرش خلفيه بيضاء/نيمو 6 ق.png'
 import nemo6 from '@/assets/صور منتجات القرش خلفيه بيضاء/نيمو برو.png'
 
@@ -50,14 +50,14 @@ import spongeScrubber5 from "@/assets/صور منتجات سكوتش القرش/
 import spongeScrubber6 from "@/assets/صور منتجات سكوتش القرش/فايبر 001.png";
 import spongeScrubber7 from "@/assets/صور منتجات سكوتش القرش/فليكس باد.jpg";
 
-import wireProduct1 from "@/assets/صور منتجات القرش خلفيه بيضاء/سلك 3 ق.png";
+import wireProduct1 from "@/assets/صور منتجات القرش خلفيه بيضاء/WireCard.jpeg";
 import wireProduct3 from "@/assets/صور منتجات القرش خلفيه بيضاء/سلك 8 ق.png";
 import wireProduct2 from "@/assets/صور منتجات القرش خلفيه بيضاء/سلك جامبو 01.png";
 import wireProduct4 from "@/assets/صور منتجات القرش خلفيه بيضاء/سلك جامبو.png";
 import wireProduct5 from "@/assets/صور منتجات القرش خلفيه بيضاء/كرتونه سلك 3 والباكيت.png";
 import wireProduct6 from "@/assets/صور منتجات القرش خلفيه بيضاء/كرتونه سلك جامبو والباكيت.png";
 
-import fiber from '@/assets/صور منتجات القرش خلفيه بيضاء/فايبر.png'
+import fiber from '@/assets/صور منتجات القرش خلفيه بيضاء/fiberNew1.jpeg'
 
 
 
@@ -87,7 +87,7 @@ const ProductsSection = () => {
 
   const products = [
     {
-      image: [wireProduct6],
+      image: [wireProduct1],
       title: "سلك ستانلس",
       description:
         "تخلص من الأوساخ العنيدة والبقع المستعصية بكل سهولة! سلك التنظيف المصنوع من الفولاذ المقاوم للصدأ يعطيك نتائج احترافية في ثوانٍ معدودة",
@@ -97,14 +97,13 @@ const ProductsSection = () => {
         {
           image: [
             wireProduct3,
-            wireProduct1,
-            wireProduct2,
-            wireProduct4,
+            
+            
+            
             wireProduct5,
             wireProduct6,
-            logo,
-            logo,
-            logo,
+
+            
             logo,
             logo,
 
@@ -161,7 +160,7 @@ const ProductsSection = () => {
           alt: "ليف إسفنجي ملون للتنظيف - White Shark",
         },
         {
-          image: [spongeScrubber6,fiber, logo],
+          image: [fiber],
           title: "ليف  فايبر",
           description:
             "ليف تنظيف إسفنجي مصنعة من ( طبة فايبر قوية+ إسفينج معالج ضد البكتريا )، فعال في إزالة البقع والأوساخ مع الحفاظ على الأسطح.",
@@ -171,7 +170,7 @@ const ProductsSection = () => {
       ],
     },
     {
-      image: [zakya3],
+      image: [zakya6],
       title: "منتجات ذكية",
           description: "تجمع بين قوة السلك الاستانلس في التنظيف السريع والفعال وبين الاسفنج عالي الكثافة,فهي الحل الأمثل لمن يبحث عن السرعة والكفاءة ",
       uses: ["سلك المواعين", "ليف الفايبر", "فوط التنظيف", "إسفنج متعدد"],
@@ -179,14 +178,10 @@ const ProductsSection = () => {
       products: [
         {
           image: [
-            zakya6,
-            zakya5,
             zakya4,
-            zakya2,
-            zakya1,  
             zakya3,
-            logo,
-            logo,
+            zakya5,
+            zakya6,
             logo,
             logo,
             logo,
@@ -239,14 +234,7 @@ const ProductsSection = () => {
       products: [
                 {
           image: [
-            spaghetti4,
-            spaghetti,
-            spaghetti2,
             spaghetti3,
-            logo,
-            logo,
-            logo,
-
           ],
           title: "سباجيتي",
           description:
@@ -256,8 +244,13 @@ const ProductsSection = () => {
         },
         {
           image: [
-
+            kharabish4,
+            kharabish3,
             kharabish1,
+            kharabish2,
+            logo,
+            logo,
+            logo,
           ],
           title: "خرابيش",
           description:
@@ -267,9 +260,13 @@ const ProductsSection = () => {
         },
         {
           image: [
-
+            nemo3,
+            nemo1,
             nemo2,
-
+            nemo4,
+            logo,
+            logo,
+            logo,
            ],
           title: "نيمو",
           description:
