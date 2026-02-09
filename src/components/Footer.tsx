@@ -14,10 +14,10 @@ const Footer = () => {
   ];
 
   const products = [
-'سلك ستانلس',
-'سكوتش القرش',
-'فليكس باد',
-'منتجات ذكية',
+{label: 'سلك ستانلس', href: "#products" },
+{label: 'سكوتش القرش', href: "#products" },
+{label: 'فليكس باد', href: "#products" },
+{label: 'منتجات ذكية', href: "#products" },
   ];
 
   const scrollToSection = (href: string) => {
@@ -110,8 +110,8 @@ const Footer = () => {
             <h4 className="text-lg font-bold mb-6">منتجاتنا</h4>
             <ul className="space-y-3">
               {products.map((product) => (
-                <li key={product}>
-                  <span className="text-background/70 text-sm">{product}</span>
+                <li key={product.label} onClick={() => scrollToSection(product.href)} className=" cursor-pointer" >
+                  <span className="text-background/70 text-sm hover:text-primary transition-colors">{product.label}</span>
                 </li>
               ))}
             </ul>
